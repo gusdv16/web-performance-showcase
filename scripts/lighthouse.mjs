@@ -32,7 +32,9 @@ const paginas = [
   ['creditos', 'creditos/'],
   ['skill', 'skill/'],
 ];
-const objetivos = paginas.map(([id, ruta]) => ({ id, url: baseUrl + ruta }));
+// SOLO=demo,ej-video  mide solo esas páginas y conserva el resto del JSON
+const solo = process.env.SOLO ? process.env.SOLO.split(',') : null;
+const objetivos = paginas.filter(([id]) => !solo || solo.includes(id)).map(([id, ruta]) => ({ id, url: baseUrl + ruta }));
 if (conExternos) objetivos.push({ id: 'ichiban4d-actual', url: 'https://ichiban4d.shop/', externo: true });
 
 const mediana = (arr, key) => [...arr].sort((a, b) => a[key] - b[key])[Math.floor(arr.length / 2)];
@@ -67,7 +69,8 @@ async function medir(url) {
   }
 }
 
-const resultado = { fecha: new Date().toISOString().slice(0, 10), corridas: RUNS, perfil: 'Móvil (emulado, throttling simulado por defecto de Lighthouse)', origen: baseUrl, paginas: {} };
+const previo = solo && fs.existsSync(new URL('../src/data/mediciones.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../src/data/mediciones.json', import.meta.url), 'utf8')) : null;
+const resultado = previo || { fecha: new Date().toISOString().slice(0, 10), corridas: RUNS, perfil: 'Móvil (emulado, throttling simulado por defecto de Lighthouse)', origen: baseUrl, paginas: {} };
 for (const o of objetivos) {
   console.log('Midiendo', o.url);
   resultado.paginas[o.id] = { url: o.externo ? o.url : undefined, ...(await medir(o.url)) };

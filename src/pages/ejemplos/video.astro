@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import '../../styles/ejemplos.css';
-import poster from '../../assets/video/poster.jpg';
+import { getImage } from 'astro:assets';
+import posterSrc from '../../assets/video/poster.jpg';
+const poster = await getImage({ src: posterSrc, width: 640, format: 'webp', quality: 45 });
 const base = import.meta.env.BASE_URL;
 ---
 <Base title="Ejemplo: video optimizado" description="Video con portada, preload none y MP4 de 480p: no se descarga hasta que se le da play.">

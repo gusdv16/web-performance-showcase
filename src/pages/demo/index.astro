@@ -3,7 +3,9 @@
 import { Picture } from 'astro:assets';
 import '../../styles/landing.css';
 import hero from '../../assets/hero/hero.jpg';
-import poster from '../../assets/video/poster.jpg';
+import { getImage } from 'astro:assets';
+import posterSrc from '../../assets/video/poster.jpg';
+const poster = await getImage({ src: posterSrc, width: 640, format: 'webp', quality: 45 });
 import { galeria } from '../../lib/galeria.js';
 const base = import.meta.env.BASE_URL;
 const destinos = galeria.slice(0, 6);

@@ -5,22 +5,22 @@
   "origen": "https://gusdv16.github.io/web-performance-showcase/",
   "paginas": {
     "inicio": {
-      "performance": 95,
+      "performance": 94,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 774,
-      "lcp": 774,
-      "tbt": 269,
+      "fcp": 836,
+      "lcp": 836,
+      "tbt": 283,
       "cls": 0,
-      "speedIndex": 780,
-      "bytes": 7014,
+      "speedIndex": 914,
+      "bytes": 7237,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        95,
-        95,
-        99
+        98,
+        90,
+        94
       ]
     },
     "tecnicas": {
@@ -28,18 +28,18 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 779,
-      "lcp": 779,
-      "tbt": 210,
+      "fcp": 885,
+      "lcp": 885,
+      "tbt": 205,
       "cls": 0,
-      "speedIndex": 779,
-      "bytes": 6772,
+      "speedIndex": 1163,
+      "bytes": 7177,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        88,
-        99,
-        97
+        97,
+        96,
+        99
       ]
     },
     "tecnica-imagenes": {
@@ -47,18 +47,18 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 822,
-      "lcp": 822,
-      "tbt": 123,
+      "fcp": 952,
+      "lcp": 952,
+      "tbt": 119,
       "cls": 0,
-      "speedIndex": 822,
-      "bytes": 10149,
+      "speedIndex": 1036,
+      "bytes": 10592,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         99,
         99,
-        99
+        97
       ]
     },
     "caso-real": {
@@ -66,56 +66,56 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 833,
-      "lcp": 833,
-      "tbt": 122,
+      "fcp": 1112,
+      "lcp": 1112,
+      "tbt": 113,
       "cls": 0,
-      "speedIndex": 833,
-      "bytes": 10006,
+      "speedIndex": 1121,
+      "bytes": 10425,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        98,
         99,
+        97,
         99
       ]
     },
     "laboratorio": {
-      "performance": 99,
+      "performance": 96,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 820,
-      "lcp": 820,
-      "tbt": 111,
+      "fcp": 777,
+      "lcp": 777,
+      "tbt": 231,
       "cls": 0,
-      "speedIndex": 820,
-      "bytes": 6733,
+      "speedIndex": 777,
+      "bytes": 6793,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         99,
-        99,
-        99
+        96,
+        95
       ]
     },
     "lab-antes": {
-      "performance": 45,
+      "performance": 71,
       "accessibility": 100,
       "bestPractices": 96,
       "seo": 63,
-      "fcp": 2504,
-      "lcp": 39345,
-      "tbt": 1552,
+      "fcp": 2680,
+      "lcp": 21123,
+      "tbt": 0,
       "cls": 0,
-      "speedIndex": 2504,
-      "bytes": 11822040,
+      "speedIndex": 2982,
+      "bytes": 12323545,
       "requests": 7,
       "version": "13.6.0",
       "corridas": [
-        44,
-        45,
-        46
+        71,
+        72,
+        45
       ]
     },
     "lab-despues": {
@@ -123,18 +123,18 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1190,
-      "lcp": 1190,
-      "tbt": 52,
+      "fcp": 1066,
+      "lcp": 1364,
+      "tbt": 81,
       "cls": 0,
-      "speedIndex": 1190,
-      "bytes": 9807,
+      "speedIndex": 1203,
+      "bytes": 100662,
       "requests": 3,
       "version": "13.6.0",
       "corridas": [
         100,
         100,
-        100
+        99
       ]
     },
     "ejemplos": {
@@ -142,12 +142,183 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 849,
-      "lcp": 849,
-      "tbt": 101,
+      "fcp": 888,
+      "lcp": 888,
+      "tbt": 119,
       "cls": 0,
-      "speedIndex": 987,
-      "bytes": 5785,
+      "speedIndex": 1073,
+      "bytes": 5999,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        96,
+        100
+      ]
+    },
+    "ej-slider": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 974,
+      "lcp": 1228,
+      "tbt": 145,
+      "cls": 0,
+      "speedIndex": 974,
+      "bytes": 228722,
+      "requests": 7,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        99
+      ]
+    },
+    "ej-slider-antes": {
+      "performance": 76,
+      "accessibility": 100,
+      "bestPractices": 96,
+      "seo": 63,
+      "fcp": 2430,
+      "lcp": 5725,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 2430,
+      "bytes": 1534735,
+      "requests": 10,
+      "version": "13.6.0",
+      "corridas": [
+        55,
+        76,
+        91
+      ]
+    },
+    "ej-galeria": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1161,
+      "lcp": 1161,
+      "tbt": 64,
+      "cls": 0,
+      "speedIndex": 1161,
+      "bytes": 209566,
+      "requests": 14,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        100
+      ]
+    },
+    "ej-galeria-antes": {
+      "performance": 76,
+      "accessibility": 100,
+      "bestPractices": 96,
+      "seo": 63,
+      "fcp": 2558,
+      "lcp": 2558,
+      "tbt": 673,
+      "cls": 0,
+      "speedIndex": 2558,
+      "bytes": 3036223,
+      "requests": 16,
+      "version": "13.6.0",
+      "corridas": [
+        74,
+        94,
+        76
+      ]
+    },
+    "ej-imagenes": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 814,
+      "lcp": 814,
+      "tbt": 84,
+      "cls": 0,
+      "speedIndex": 814,
+      "bytes": 6041,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "ej-video": {
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1188,
+      "lcp": 4220,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 1401,
+      "bytes": 665750,
+      "requests": 9,
+      "version": "13.6.0",
+      "corridas": [
+        86,
+        84,
+        86
+      ]
+    },
+    "ej-video-antes": {
+      "performance": 93,
+      "accessibility": 100,
+      "bestPractices": 96,
+      "seo": 60,
+      "fcp": 2462,
+      "lcp": 2474,
+      "tbt": 110,
+      "cls": 0,
+      "speedIndex": 2462,
+      "bytes": 8442228,
+      "requests": 13,
+      "version": "13.6.0",
+      "corridas": [
+        93,
+        94,
+        93
+      ]
+    },
+    "demo": {
+      "performance": 84,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1362,
+      "lcp": 4533,
+      "tbt": 59,
+      "cls": 0,
+      "speedIndex": 1362,
+      "bytes": 1009604,
+      "requests": 16,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        84,
+        84
+      ]
+    },
+    "demo-como": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 932,
+      "lcp": 932,
+      "tbt": 94,
+      "cls": 0,
+      "speedIndex": 1065,
+      "bytes": 6664,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
@@ -156,98 +327,22 @@
         98
       ]
     },
-    "ej-slider": {
-      "performance": 100,
-      "accessibility": 100,
-      "bestPractices": 100,
-      "seo": 100,
-      "fcp": 978,
-      "lcp": 978,
-      "tbt": 0,
-      "cls": 0,
-      "speedIndex": 978,
-      "bytes": 111651,
-      "requests": 7,
-      "version": "13.6.0",
-      "corridas": [
-        100,
-        100,
-        100
-      ]
-    },
-    "ej-slider-antes": {
-      "performance": 62,
-      "accessibility": 100,
-      "bestPractices": 96,
-      "seo": 63,
-      "fcp": 2516,
-      "lcp": 3771,
-      "tbt": 1205,
-      "cls": 0,
-      "speedIndex": 2516,
-      "bytes": 1669647,
-      "requests": 10,
-      "version": "13.6.0",
-      "corridas": [
-        85,
-        55,
-        62
-      ]
-    },
-    "ej-galeria": {
+    "creditos": {
       "performance": 99,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1106,
-      "lcp": 1106,
-      "tbt": 102,
+      "fcp": 888,
+      "lcp": 888,
+      "tbt": 115,
       "cls": 0,
-      "speedIndex": 1106,
-      "bytes": 136575,
-      "requests": 14,
-      "version": "13.6.0",
-      "corridas": [
-        99,
-        99,
-        99
-      ]
-    },
-    "ej-galeria-antes": {
-      "performance": 77,
-      "accessibility": 100,
-      "bestPractices": 96,
-      "seo": 63,
-      "fcp": 2497,
-      "lcp": 2497,
-      "tbt": 679,
-      "cls": 0,
-      "speedIndex": 2497,
-      "bytes": 3332868,
-      "requests": 16,
-      "version": "13.6.0",
-      "corridas": [
-        75,
-        77,
-        77
-      ]
-    },
-    "ej-imagenes": {
-      "performance": 100,
-      "accessibility": 100,
-      "bestPractices": 100,
-      "seo": 100,
-      "fcp": 817,
-      "lcp": 817,
-      "tbt": 73,
-      "cls": 0,
-      "speedIndex": 817,
-      "bytes": 6029,
+      "speedIndex": 950,
+      "bytes": 7445,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        100,
-        100,
+        99,
+        98,
         100
       ]
     },
@@ -256,17 +351,17 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 772,
-      "lcp": 772,
-      "tbt": 120,
+      "fcp": 777,
+      "lcp": 777,
+      "tbt": 119,
       "cls": 0,
-      "speedIndex": 772,
-      "bytes": 5934,
+      "speedIndex": 777,
+      "bytes": 5984,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         100,
-        99,
+        98,
         99
       ]
     }
