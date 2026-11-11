@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Resultados from '../components/Resultados.astro';
+import data from '../data/mediciones.json';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Web Performance: sitios que cargan rápido">
+  <h1>Sitios web que cargan rápido</h1>
+  <p class="lead">Técnicas concretas para mejorar la velocidad de carga, y un caso real con las mejoras aplicadas.</p>
+  <p><a class="btn" href={base + 'tecnicas/'}>Ver las técnicas</a></p>
+
+  <h2>Este sitio, medido</h2>
+  <p>Lighthouse en móvil sobre esta misma página de inicio{data.fecha ? ` (${data.fecha})` : ''}:</p>
+  <Resultados id="inicio" />
+  <p><small>
+    {data.corridas ? `Mediana de ${data.corridas} corridas. ` : ''}Perfil: {data.perfil || 'móvil emulado'}.
+    Resultados de otras páginas en el <a href={base + 'laboratorio/'}>laboratorio</a>. Los puntajes varían un poco entre corridas y según el equipo.
+  </small></p>
+
+  <h2>Cómo se logra</h2>
+  <ul>
+    <li><strong>HTML estático</strong> generado en el build: nada que construir en el navegador.</li>
+    <li><strong>0 bytes de JavaScript</strong> en el cliente.</li>
+    <li><strong>CSS propio, inline</strong> en cada página: una sola petición para pintar.</li>
+    <li><strong>Fuentes del sistema</strong>: sin descargas ni saltos de diseño.</li>
+    <li>Imágenes en <strong>AVIF</strong>, con tamaños múltiples, dimensiones declaradas y lazy loading donde corresponde.</li>
+  </ul>
+
+  <h2>Qué hay en el sitio</h2>
+  <ul class="cards">
+    <li class="card"><a href={base + 'tecnicas/'}><h3>Técnicas</h3><p>Core Web Vitals, imágenes, preload, fuentes, CSS, JS, caché, compresión y cómo medir.</p></a></li>
+    <li class="card"><a href={base + 'caso-real/'}><h3>Caso real</h3><p>Las mejoras aplicadas a un catálogo de productos en producción.</p></a></li>
+    <li class="card"><a href={base + 'laboratorio/'}><h3>Laboratorio</h3><p>La misma página sin optimizar y optimizada, con mediciones lado a lado.</p></a></li>
+  </ul>
+</Base>

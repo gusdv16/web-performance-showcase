@@ -1,0 +1,31 @@
+---
+// Página deliberadamente MAL optimizada (para comparar). No indexable.
+import foto from '../../assets/foto.png';
+const base = import.meta.env.BASE_URL;
+const original = foto.src; // PNG original sin procesar
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Laboratorio: antes (sin optimizar)</title>
+  <meta name="description" content="Versión deliberadamente lenta de la misma página, para comparar con la optimizada.">
+  <link rel="stylesheet" href={base + 'lab/antes.css'}>
+  <script is:inline src={base + 'lab/antes.js'}></script>
+</head>
+<body>
+  <header><a href={base + 'laboratorio/'}>← Laboratorio</a></header>
+  <main>
+    <h1>Página de ejemplo (sin optimizar)</h1>
+    <p>Misma estructura que la versión optimizada, pero con los errores más habituales.</p>
+    <p>Después de este texto aparece una imagen de gran tamaño sin dimensiones declaradas.</p>
+    <img src={original} alt="Imagen de ejemplo generada con degradados">
+    <h2>Otra sección</h2>
+    <p>Esta imagen está más abajo, pero igual se descarga al abrir la página.</p>
+    <img src={original + '?2'} alt="Imagen de ejemplo generada con degradados, segunda copia">
+    <img src={original + '?3'} alt="Imagen de ejemplo generada con degradados, tercera copia">
+  </main>
+</body>
+</html>

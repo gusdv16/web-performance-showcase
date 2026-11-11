@@ -1,0 +1,141 @@
+{
+  "fecha": "2026-11-11",
+  "corridas": 3,
+  "perfil": "Móvil (emulado, throttling simulado por defecto de Lighthouse)",
+  "origen": "http://127.0.0.1:4322/web-performance-showcase/",
+  "paginas": {
+    "inicio": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 785,
+      "lcp": 785,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 785,
+      "bytes": 6887,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        100
+      ]
+    },
+    "tecnicas": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 817,
+      "lcp": 817,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 817,
+      "bytes": 6939,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        99,
+        100
+      ]
+    },
+    "tecnica-imagenes": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 863,
+      "lcp": 863,
+      "tbt": 48,
+      "cls": 0,
+      "speedIndex": 863,
+      "bytes": 10355,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        100
+      ]
+    },
+    "caso-real": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 901,
+      "lcp": 901,
+      "tbt": 3,
+      "cls": 0,
+      "speedIndex": 901,
+      "bytes": 9870,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "laboratorio": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 847,
+      "lcp": 847,
+      "tbt": 110,
+      "cls": 0,
+      "speedIndex": 847,
+      "bytes": 6949,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        99,
+        100
+      ]
+    },
+    "lab-antes": {
+      "performance": 71,
+      "accessibility": 100,
+      "bestPractices": 96,
+      "seo": 63,
+      "fcp": 2520,
+      "lcp": 58817,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 2520,
+      "bytes": 11811401,
+      "requests": 7,
+      "version": "13.6.0",
+      "corridas": [
+        71,
+        71,
+        72
+      ]
+    },
+    "lab-despues": {
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 96,
+      "seo": 100,
+      "fcp": 607,
+      "lcp": 607,
+      "tbt": 167,
+      "cls": 0,
+      "speedIndex": 784,
+      "bytes": 10470,
+      "requests": 3,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        98,
+        98
+      ]
+    }
+  }
+}

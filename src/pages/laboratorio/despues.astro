@@ -1,0 +1,21 @@
+---
+// Misma página, optimizada.
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import foto from '../../assets/foto.png';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Laboratorio: después (optimizada)" description="Misma página que la versión sin optimizar, con las técnicas aplicadas.">
+  <p><a href={base + 'laboratorio/'}>← Laboratorio</a></p>
+  <h1>Página de ejemplo (optimizada)</h1>
+  <p>Misma estructura que la versión sin optimizar, con las técnicas de este sitio aplicadas.</p>
+  <p>Después de este texto aparece la imagen principal, ya con dimensiones, formato moderno y prioridad alta.</p>
+  <Image src={foto} format="avif" widths={[480, 800, 1200, 1600]} sizes="(max-width: 46rem) 100vw, 46rem" quality={60}
+    loading="eager" fetchpriority="high" alt="Imagen de ejemplo generada con degradados" />
+  <h2>Otra sección</h2>
+  <p>Estas imágenes están más abajo: se cargan solo cuando el visitante se acerca.</p>
+  <Image src={foto} format="avif" widths={[480, 800, 1200, 1600]} sizes="(max-width: 46rem) 100vw, 46rem" quality={60}
+    loading="lazy" alt="Imagen de ejemplo generada con degradados, segunda copia" />
+  <Image src={foto} format="avif" widths={[480, 800, 1200, 1600]} sizes="(max-width: 46rem) 100vw, 46rem" quality={60}
+    loading="lazy" alt="Imagen de ejemplo generada con degradados, tercera copia" />
+</Base>

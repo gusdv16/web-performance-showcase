@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import { tecnicas } from '../../data/tecnicas.js';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Técnicas de performance web" description="Diez técnicas concretas para mejorar la velocidad de carga de un sitio web.">
+  <h1>Técnicas de performance</h1>
+  <p class="lead">Diez áreas donde se gana (o se pierde) velocidad, cada una con ejemplos de código que se pueden copiar.</p>
+  <ul class="cards">
+    {tecnicas.map((t, i) => (
+      <li class="card"><a href={`${base}tecnicas/${t.slug}/`}><h2>{i + 1}. {t.titulo}</h2><p>{t.resumen}</p></a></li>
+    ))}
+  </ul>
+  <p>¿Querés verlo aplicado? Mirá el <a href={base + 'caso-real/'}>caso real</a> o el <a href={base + 'laboratorio/'}>laboratorio antes/después</a>.</p>
+</Base>

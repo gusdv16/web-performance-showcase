@@ -1,0 +1,23 @@
+---
+// Muestra los puntajes medidos de una página (src/data/mediciones.json, generado por scripts/lighthouse.mjs)
+import data from '../data/mediciones.json';
+const { id, metricas = true } = Astro.props;
+const r = data.paginas?.[id];
+const fmt = (ms) => (ms >= 1000 ? (ms / 1000).toFixed(1).replace('.', ',') + ' s' : ms + ' ms');
+const kb = (b) => (b >= 1048576 ? (b / 1048576).toFixed(1).replace('.', ',') + ' MB' : Math.round(b / 1024) + ' KB');
+---
+{r ? (
+  <>
+    <div class="scores" role="list">
+      <div class="score" role="listitem"><b>{r.performance}</b><span>Performance</span></div>
+      <div class="score" role="listitem"><b>{r.accessibility}</b><span>Accesibilidad</span></div>
+      <div class="score" role="listitem"><b>{r.bestPractices}</b><span>Buenas prácticas</span></div>
+      <div class="score" role="listitem"><b>{r.seo}</b><span>SEO</span></div>
+    </div>
+    {metricas && (
+      <p><small>LCP {fmt(r.lcp)} · TBT {fmt(r.tbt)} · CLS {String(r.cls).replace('.', ',')} · FCP {fmt(r.fcp)} · {kb(r.bytes)} · {r.requests} peticiones</small></p>
+    )}
+  </>
+) : (
+  <p class="todo">Medición pendiente.</p>
+)}

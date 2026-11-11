@@ -1,0 +1,18 @@
+---
+import Base from './Base.astro';
+import { tecnicas } from '../data/tecnicas.js';
+const { frontmatter } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const i = tecnicas.findIndex((t) => t.slug === frontmatter.slug);
+const prev = tecnicas[i - 1], next = tecnicas[i + 1];
+---
+<Base title={`${frontmatter.title} | Web Performance`} description={frontmatter.description}>
+  <p><a href={base + 'tecnicas/'}>← Técnicas</a></p>
+  <h1>{frontmatter.title}</h1>
+  <p class="lead">{frontmatter.description}</p>
+  <slot />
+  <nav class="pager" aria-label="Navegación entre técnicas">
+    {prev ? <a href={base + 'tecnicas/' + prev.slug + '/'}>← {prev.titulo}</a> : <span></span>}
+    {next ? <a href={base + 'tecnicas/' + next.slug + '/'}>{next.titulo} →</a> : <span></span>}
+  </nav>
+</Base>

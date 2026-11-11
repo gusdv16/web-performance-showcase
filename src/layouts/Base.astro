@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+const { title, description = 'Técnicas reales para que un sitio web cargue rápido, y un caso con mejoras aplicadas.' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const path = Astro.url.pathname;
+const nav = [
+  ['Técnicas', base + 'tecnicas/'],
+  ['Caso real', base + 'caso-real/'],
+  ['Laboratorio', base + 'laboratorio/'],
+];
+const isCurrent = (href) => path.startsWith(href);
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+  <slot name="head" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href={base}>⚡ Web Performance</a>
+      {nav.map(([t, h]) => <a href={h} aria-current={isCurrent(h) ? 'page' : undefined}>{t}</a>)}
+    </div>
+  </header>
+  <main class="wrap"><slot /></main>
+  <footer class="site"><div class="wrap">Sitio estático hecho con Astro, sin frameworks de UI y sin JavaScript en el cliente. <a href="https://github.com/gusdv16/web-performance-showcase">Código en GitHub</a>.</div></footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+# Web Performance Showcase
+
+Sitio de muestra hecho con [Astro](https://astro.build) que demuestra **carga muy rápida** y explica técnicas para mejorar la performance de cualquier sitio web, más un caso real con las mejoras aplicadas a un catálogo en producción.
+
+**Demo en vivo:** https://gusdv16.github.io/web-performance-showcase/
+
+## Qué incluye
+
+- **Técnicas** (10 páginas): Core Web Vitals (LCP, INP, CLS), imágenes WebP/AVIF, `srcset`/`sizes` y lazy loading, preload y prioridades, fuentes, CSS crítico, minimizar JavaScript, caché y CDN, compresión, y cómo medir con Lighthouse y PageSpeed.
+- **Caso real**: las mejoras aplicadas a un catálogo de posters 3D hecho con Astro (el código de ese proyecto es privado; acá solo se explican las técnicas).
+- **Laboratorio**: la misma página sin optimizar y optimizada, medidas con el mismo método.
+
+## Cómo es tan rápido
+
+- HTML estático generado en el build, sin framework de UI.
+- **0 bytes de JavaScript** en el cliente (la única excepción es el script de la página "antes" del laboratorio, que está ahí a propósito).
+- CSS propio, inline en cada página (`inlineStylesheets: 'always'`).
+- Fuentes del sistema: sin descargas ni saltos de diseño.
+- Imágenes AVIF con `srcset`, dimensiones declaradas y lazy loading (en el laboratorio).
+
+## Mediciones
+
+Los puntajes se muestran en el sitio y salen de `src/data/mediciones.json`, generado por `scripts/lighthouse.mjs` con Lighthouse en móvil (throttling por defecto) y la **mediana de 3 corridas**. No hay cifras inventadas: lo que no se midió figura como pendiente.
+
+Para repetirlas:
+
+```bash
+npm install
+npm run build
+npm run preview        # en otra terminal: http://127.0.0.1:4322/web-performance-showcase/
+npm run lighthouse -- http://127.0.0.1:4322/web-performance-showcase/
+```
+
+El script usa Chrome instalado en Windows (`C:\Program Files\Google\Chrome\Application\chrome.exe`); en otro sistema definí la variable `CHROME_PATH`. Con `--externos` también mide la página pública del catálogo del caso real.
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev       # http://localhost:4321/web-performance-showcase/
+npm run build     # genera dist/
+```
+
+## Estructura
+
+```
+src/
+  layouts/        Base.astro (HTML, nav, footer) y Tecnica.astro
+  pages/          inicio, tecnicas/*.md, caso-real, laboratorio
+  components/     Resultados.astro (puntajes medidos)
+  data/           tecnicas.js (índice) y mediciones.json (resultados)
+  assets/foto.png imagen sintética del laboratorio (scripts/gen-foto.mjs)
+public/lab/       CSS y JS de la versión "antes" del laboratorio
+scripts/          lighthouse.mjs y gen-foto.mjs
+```
+
+## Deploy
+
+Cada push a `main` ejecuta `.github/workflows/deploy.yml`, que construye el sitio y lo publica en GitHub Pages.
+
+## Licencia
+
+MIT. Ver [LICENSE](LICENSE).

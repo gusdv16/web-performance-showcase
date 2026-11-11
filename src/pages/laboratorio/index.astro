@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import Resultados from '../../components/Resultados.astro';
+import data from '../../data/mediciones.json';
+const base = import.meta.env.BASE_URL;
+const a = data.paginas?.['lab-antes'], d = data.paginas?.['lab-despues'];
+const fmt = (ms) => (ms >= 1000 ? (ms / 1000).toFixed(1).replace('.', ',') + ' s' : ms + ' ms');
+const kb = (b) => (b >= 1048576 ? (b / 1048576).toFixed(1).replace('.', ',') + ' MB' : Math.round(b / 1024) + ' KB');
+---
+<Base title="Laboratorio antes/después" description="La misma página sin optimizar y optimizada, medida con Lighthouse en móvil.">
+  <h1>Laboratorio: antes y después</h1>
+  <p class="lead">Dos versiones de la misma página, medidas con el mismo método. Podés abrirlas y medirlas vos mismo.</p>
+  <p><a href={base + 'laboratorio/antes/'}>Versión sin optimizar</a> · <a href={base + 'laboratorio/despues/'}>Versión optimizada</a></p>
+
+  <h2>Qué cambia entre una y otra</h2>
+  <table>
+    <thead><tr><th>Aspecto</th><th>Antes</th><th>Después</th></tr></thead>
+    <tbody>
+      <tr><td>Imagen</td><td>PNG original completo, sin dimensiones</td><td>AVIF, 480 y 800 px con <code>srcset</code>, con ancho y alto</td></tr>
+      <tr><td>Prioridad</td><td>Sin pistas: el navegador adivina</td><td>Principal con <code>fetchpriority="high"</code>; las otras con <code>loading="lazy"</code></td></tr>
+      <tr><td>CSS</td><td>Hoja externa que bloquea el render</td><td>CSS inline en el HTML</td></tr>
+      <tr><td>JavaScript</td><td>Script síncrono en el head (simula un tercero pesado: ~400 ms de trabajo)</td><td>Ninguno</td></tr>
+    </tbody>
+  </table>
+  <p><small>La imagen es una ilustración sintética (degradado con ruido) generada por <code>scripts/gen-foto.mjs</code>, no una foto real.</small></p>
+
+  <h2>Resultados medidos</h2>
+  {a && d ? (
+    <>
+      <p><small>{data.fecha} · mediana de {data.corridas} corridas · Lighthouse móvil · {data.origen.startsWith('http://127') ? 'servidor local de producción' : 'sitio publicado'}</small></p>
+      <table>
+        <thead><tr><th>Métrica</th><th>Antes</th><th>Después</th></tr></thead>
+        <tbody>
+          <tr><td>Performance</td><td>{a.performance}</td><td>{d.performance}</td></tr>
+          <tr><td>LCP</td><td>{fmt(a.lcp)}</td><td>{fmt(d.lcp)}</td></tr>
+          <tr><td>TBT</td><td>{fmt(a.tbt)}</td><td>{fmt(d.tbt)}</td></tr>
+          <tr><td>CLS</td><td>{String(a.cls).replace('.', ',')}</td><td>{String(d.cls).replace('.', ',')}</td></tr>
+          <tr><td>Peso transferido</td><td>{kb(a.bytes)}</td><td>{kb(d.bytes)}</td></tr>
+        </tbody>
+      </table>
+      <h3>Versión optimizada</h3>
+      <Resultados id="lab-despues" metricas={false} />
+    </>
+  ) : <p class="todo">Medición pendiente.</p>}
+
+  <h2>Reproducirlo</h2>
+  <pre><code>npm install
+npm run build
+npm run preview          # en otra terminal
+npm run lighthouse -- http://127.0.0.1:4322/web-performance-showcase/</code></pre>
+</Base>

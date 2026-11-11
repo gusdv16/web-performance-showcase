@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Caso real: catálogo de posters" description="Mejoras de velocidad aplicadas a un catálogo de posters 3D en producción, hecho con Astro.">
+  <h1>Caso real: catálogo de posters 3D</h1>
+  <p class="lead">Un catálogo de más de cien posters con fotos, animaciones y video, en un sitio estático con Astro. Esto es lo que se hizo para que cargue rápido en celular.</p>
+
+  <div class="note">El código del catálogo es privado. Acá se describen las técnicas aplicadas, tomadas del historial real de cambios del proyecto, con fragmentos simplificados.</div>
+
+  <h2>El punto de partida</h2>
+  <p>La tienda anterior estaba en WordPress. Se reemplazó por un sitio estático en Astro con el catálogo prerenderizado en el HTML, y la tienda vieja se redirige con 301. Después, cada cambio buscó reducir lo que el navegador tiene que bajar y ejecutar antes de mostrar los primeros posters.</p>
+
+  <h2>Mejoras aplicadas</h2>
+
+  <h3>1. Catálogo prerenderizado y CSS en línea</h3>
+  <p>La lista de posters sale ya escrita en el HTML (no se arma con JavaScript) y todo el CSS va dentro de la página. El primer pintado necesita una sola petición.</p>
+  <pre><code>// astro.config.mjs
+build: &#123; inlineStylesheets: 'always' &#125;</code></pre>
+
+  <h3>2. Imágenes WebP con dimensiones y prioridad</h3>
+  <p>Todas las fotos son WebP con <code>width</code> y <code>height</code> declarados (540×960), para que el espacio quede reservado y la página no salte (CLS). Las primeras tarjetas se cargan con prioridad alta y el resto con <code>loading="lazy"</code>. Al principio eran 4 imágenes con carga inmediata; se bajó a 2 para que compitan menos con la imagen principal.</p>
+  <pre><code>&lt;img src="/img/P001-1.webp" width="540" height="960"
+     loading="eager" fetchpriority="high" decoding="async" alt="..."&gt;</code></pre>
+
+  <h3>3. Imagen de reemplazo mientras cargan</h3>
+  <p>Cada tarjeta muestra una imagen liviana por defecto con el estilo de la marca mientras llega la foto real, así no hay huecos en blanco.</p>
+
+  <h3>4. Primero la foto fija, después la animación</h3>
+  <p>Cada poster tiene una animación en WebP animado (del orden de 200 KB) con GIF de respaldo. Descargarlas todas al abrir la página era lo más pesado. Ahora la tarjeta arranca con la foto fija y la animación se pide solo <strong>cuando la página ya terminó de cargar y la tarjeta está a la vista</strong>, usando <code>IntersectionObserver</code>. Si el usuario tiene activado el ahorro de datos, no se descarga. Los videos usan <code>preload="none"</code>.</p>
+
+  <h3>5. Analítica diferida</h3>
+  <p>Google Tag Manager y el píxel de Meta ya no se cargan en la carga inicial: se cargan al primer toque, scroll o tecla, o 2,5 segundos después del evento <code>load</code>. El sitio sigue midiendo, pero esos scripts de terceros no compiten con el contenido. Las ideas están explicadas en <a href={base + 'tecnicas/javascript/'}>Minimizar JavaScript</a>.</p>
+
+  <h3>6. Landing liviana para anuncios</h3>
+  <p>Para el tráfico de anuncios en celular se creó una página aparte con 10 posters y miniaturas de 300×450 px que pesan alrededor de 24 KB cada una, en lugar de las imágenes completas.</p>
+
+  <h3>7. Caché, compresión y CDN</h3>
+  <ul>
+    <li>Compresión (<code>mod_deflate</code>) para HTML, CSS, JS, JSON y SVG.</li>
+    <li>CSS y JS con caché de 1 año; imágenes y video, 1 mes; HTML y JSON, 10 minutos.</li>
+    <li>Las URLs de fotos y animaciones llevan un parámetro de versión, para poder cambiarlas sin esperar a que venza la caché de 30 días.</li>
+    <li>El HTML usa <code>stale-while-revalidate</code> y <code>stale-if-error</code>: el CDN sirve la copia guardada mientras la actualiza por detrás, y los visitantes no esperan al origen cuando expira.</li>
+  </ul>
+  <pre><code>Cache-Control: ..., stale-while-revalidate=86400, stale-if-error=86400</code></pre>
+  <p>Más sobre esto en <a href={base + 'tecnicas/cache-cdn/'}>Caché y CDN</a>.</p>
+
+  <h2>Antes y después</h2>
+  <p>El sitio anterior ya no existe, y no se guardó una medición suya. Por eso <strong>no se publican cifras de "antes"</strong> para el caso real. Lo que sí se puede mostrar es el resultado actual, medido en el sitio publicado, y la comparación controlada del <a href={base + 'laboratorio/'}>laboratorio</a>, donde ambas versiones están medidas con el mismo método.</p>
+  <table>
+    <thead><tr><th>Mejora</th><th>Antes</th><th>Después</th></tr></thead>
+    <tbody>
+      <tr><td>Tienda</td><td>WordPress (sin medición guardada)</td><td>Astro estático</td></tr>
+      <tr><td>Animaciones al abrir</td><td>Todas pedidas junto con la página (~200 KB c/u)</td><td>Foto fija; animación solo al verse, tras <code>load</code></td></tr>
+      <tr><td>Analítica</td><td>Scripts en la carga inicial</td><td>Diferidos al primer gesto o 2,5 s después de <code>load</code></td></tr>
+      <tr><td>Imágenes con carga inmediata</td><td>4</td><td>2</td></tr>
+      <tr><td>Miniatura en landing de anuncios</td><td>Imagen completa</td><td>300×450 px, ~24 KB</td></tr>
+    </tbody>
+  </table>
+
+  <p>Un catálogo real con cientos de imágenes, animaciones y scripts de analítica no llega al 100 de Lighthouse como una página de texto, y está bien: lo que importa es que lo primero que ve el visitante aparezca rápido y que el resto no lo estorbe. Por eso este sitio separa el caso real (técnicas aplicadas) del laboratorio (números controlados).</p>
+</Base>
