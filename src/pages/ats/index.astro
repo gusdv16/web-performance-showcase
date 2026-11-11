@@ -1,0 +1,45 @@
+---
+import { Picture } from 'astro:assets';
+import '../../styles/ats.css';
+import lateral from '../../assets/ats/login.jpg';
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Iniciar sesión | Talento Sur (demo)</title>
+  <meta name="description" content="Demostración de un sistema de seguimiento de postulantes: acceso, panel de vacantes y tablero de candidatos, con datos inventados.">
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+</head>
+<body>
+  <div class="demo">Demo con datos inventados: cualquier correo y contraseña sirven. <a href={base + 'ats/como-esta-hecha/'}>Cómo está hecha</a> · <a href={base}>Sitio de performance</a></div>
+  <div class="auth">
+    <aside>
+      <Picture src={lateral} formats={['avif', 'webp']} widths={[480, 720, 1000]} sizes="50vw" quality={50}
+        alt="" loading="lazy" decoding="async" />
+      <span class="logo">Talento Sur</span>
+      <blockquote>“Gestioná tus procesos de selección, candidatos y equipo en un solo lugar.”<br><small>Equipo de Talento Sur (marca ficticia)</small></blockquote>
+    </aside>
+    <main>
+      <div class="box">
+        <span class="logo">Talento Sur</span>
+        <h1>Bienvenido/a de nuevo</h1>
+        <p class="sm">Ingresá tus credenciales para acceder a tu espacio de trabajo.</p>
+        <form action={base + 'ats/panel/'} method="get">
+          <label>Correo electrónico
+            <input type="email" name="email" autocomplete="email" inputmode="email" placeholder="nombre@ejemplo.com" required>
+          </label>
+          <label>Contraseña
+            <input type="password" name="clave" autocomplete="current-password" required minlength="4">
+          </label>
+          <button class="btn" type="submit">Iniciar sesión</button>
+        </form>
+        <p class="sm"><a href={base + 'ats/panel/'}>Entrar a la demo directamente</a></p>
+        <p class="sm">¿No tenés cuenta? <a href={base + 'ats/registro/'}>Registrate</a></p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

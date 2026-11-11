@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import Resultados from '../../components/Resultados.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Cómo está hecha la demo del ATS" description="Técnicas de performance aplicadas a una aplicación con acceso, panel de vacantes con filtros y tablero de candidatos.">
+  <p><a href={base + 'ats/'}>← Ver la demo</a></p>
+  <h1>Cómo está hecha la demo del ATS</h1>
+  <p class="lead">Un sistema de seguimiento de postulantes (ATS) ficticio: acceso, registro, panel de vacantes con búsqueda y filtros, y tablero de candidatos. Todos los datos son inventados.</p>
+
+  <h2>Resultado medido</h2>
+  <h3>Pantalla de acceso</h3>
+  <Resultados id="ats-login" />
+  <h3>Panel de vacantes</h3>
+  <Resultados id="ats-panel" />
+  <h3>Tablero de candidatos</h3>
+  <Resultados id="ats-candidatos" />
+
+  <h2>Técnicas aplicadas</h2>
+  <ul>
+    <li><strong>Datos en el HTML:</strong> la tabla de vacantes y el tablero salen ya renderizados en el build. No hay una petición a una API ni un "cargando…" antes de ver contenido.</li>
+    <li><strong>Un script de ~700 bytes</strong> (en línea, sin archivo aparte) para la búsqueda y los filtros. Alterna el atributo <code>hidden</code> de las filas; no hay librerías ni framework.</li>
+    <li><strong>Imagen lateral solo donde se ve:</strong> en el acceso, la foto es <code>loading="lazy"</code> y el panel se oculta en pantallas angostas, así que el celular no la descarga. En escritorio llega en AVIF/WebP del tamaño justo.</li>
+    <li><strong><code>content-visibility: auto</code></strong> en las columnas del tablero, para no renderizar lo que está fuera de pantalla.</li>
+    <li><strong>Avatares sin imágenes:</strong> iniciales sobre un color calculado, cero peticiones.</li>
+    <li><strong>Formularios nativos:</strong> <code>type="email"</code>, <code>autocomplete</code> y <code>required</code> en lugar de validadores en JavaScript.</li>
+    <li><strong>CSS propio inline</strong> y fuentes del sistema.</li>
+  </ul>
+
+  <div class="note">En una aplicación real, esta lógica la haría un framework con un API. La lección de performance es la misma: renderizar en el servidor o en el build, enviar el mínimo de JavaScript y cargar tarde lo que no se ve al abrir.</div>
+  <p>Fotos: ver <a href={base + 'creditos/'}>créditos</a>.</p>
+</Base>

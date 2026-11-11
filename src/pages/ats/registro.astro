@@ -1,0 +1,51 @@
+---
+import { Picture } from 'astro:assets';
+import '../../styles/ats.css';
+import lateral from '../../assets/ats/login.jpg';
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Crear cuenta | Talento Sur (demo)</title>
+  <meta name="description" content="Registro de la demo del sistema de seguimiento de postulantes. No se guarda ningún dato.">
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+</head>
+<body>
+  <div class="demo">Demo: no se guarda ningún dato. <a href={base + 'ats/como-esta-hecha/'}>Cómo está hecha</a> · <a href={base}>Sitio de performance</a></div>
+  <div class="auth">
+    <aside>
+      <Picture src={lateral} formats={['avif', 'webp']} widths={[480, 720, 1000]} sizes="50vw" quality={50}
+        alt="" loading="lazy" decoding="async" />
+      <span class="logo">Talento Sur</span>
+      <blockquote>“Todo tu equipo de selección, en una sola herramienta.”<br><small>Marca ficticia</small></blockquote>
+    </aside>
+    <main>
+      <div class="box">
+        <span class="logo">Talento Sur</span>
+        <h1>Crear cuenta</h1>
+        <p class="sm">Empezá a gestionar tus procesos de selección.</p>
+        <form action={base + 'ats/panel/'} method="get">
+          <label>Nombre completo
+            <input type="text" name="nombre" autocomplete="name" required minlength="2">
+          </label>
+          <label>Empresa
+            <input type="text" name="empresa" autocomplete="organization" required>
+          </label>
+          <label>Correo electrónico
+            <input type="email" name="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <label>Contraseña
+            <input type="password" name="clave" autocomplete="new-password" required minlength="8">
+          </label>
+          <button class="btn" type="submit">Crear cuenta</button>
+        </form>
+        <p class="sm">¿Ya tenés cuenta? <a href={base + 'ats/'}>Iniciá sesión</a></p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

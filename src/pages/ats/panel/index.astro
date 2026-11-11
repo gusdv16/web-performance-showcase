@@ -1,0 +1,67 @@
+---
+import Ats from '../../../layouts/Ats.astro';
+import { vacantes } from '../../../data/ats.js';
+const base = import.meta.env.BASE_URL;
+const activas = vacantes.filter((v) => v.estado === 'Activa').length;
+const total = vacantes.reduce((s, v) => s + v.postulantes, 0);
+const areas = [...new Set(vacantes.map((v) => v.area))];
+---
+<Ats title="Vacantes" activo="vacantes">
+  <div class="head">
+    <div><h1>Vacantes</h1><span style="color:var(--muted)">Procesos de selección abiertos y cerrados</span></div>
+    <a class="btn" href="#nueva">Nueva vacante</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>{vacantes.length}</b><span>Vacantes</span></div>
+    <div class="stat"><b>{activas}</b><span>Activas</span></div>
+    <div class="stat"><b>{total}</b><span>Postulantes</span></div>
+    <div class="stat"><b id="n">{vacantes.length}</b><span>Mostradas</span></div>
+  </div>
+
+  <div class="filters" role="search">
+    <label>Buscar<input id="q" type="search" placeholder="Puesto, área o ciudad" autocomplete="off"></label>
+    <label>Estado
+      <select id="e"><option value="">Todos</option><option>Activa</option><option>Pausada</option><option>Cerrada</option></select>
+    </label>
+    <label>Área
+      <select id="a"><option value="">Todas</option>{areas.map((a) => <option>{a}</option>)}</select>
+    </label>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Vacante</th><th>Área</th><th>Ubicación</th><th>Estado</th><th>Postulantes</th><th>Publicada</th></tr></thead>
+      <tbody>
+        {vacantes.map((v) => (
+          <tr data-t={`${v.titulo} ${v.area} ${v.ciudad}`.toLowerCase()} data-e={v.estado} data-a={v.area}>
+            <td><a href={`#vacante-${v.id}`}>{v.titulo}</a></td>
+            <td>{v.area}</td>
+            <td>{v.ciudad}</td>
+            <td><span class={`tag ${v.estado}`}>{v.estado}</span></td>
+            <td>{v.postulantes}</td>
+            <td>hace {v.dias} {v.dias === 1 ? 'día' : 'días'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="empty" id="vacio" hidden>No hay vacantes con esos filtros.</p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var q = document.getElementById('q'), e = document.getElementById('e'), a = document.getElementById('a');
+      var rows = document.querySelectorAll('tbody tr'), n = document.getElementById('n'), v = document.getElementById('vacio');
+      function f() {
+        var t = q.value.trim().toLowerCase(), c = 0;
+        for (var i = 0; i < rows.length; i++) {
+          var r = rows[i];
+          var ok = (!t || r.dataset.t.indexOf(t) > -1) && (!e.value || r.dataset.e === e.value) && (!a.value || r.dataset.a === a.value);
+          r.hidden = !ok; if (ok) c++;
+        }
+        n.textContent = c; v.hidden = c > 0;
+      }
+      q.addEventListener('input', f); e.addEventListener('change', f); a.addEventListener('change', f);
+    })();
+  </script>
+</Ats>

@@ -1,0 +1,25 @@
+---
+import Ats from '../../../layouts/Ats.astro';
+import { candidatos, etapas } from '../../../data/ats.js';
+---
+<Ats title="Candidatos" activo="candidatos">
+  <div class="head">
+    <div><h1>Candidatos</h1><span style="color:var(--muted)">Tablero por etapa del proceso</span></div>
+  </div>
+  <div class="board">
+    {etapas.map((e) => {
+      const lista = candidatos.filter((c) => c.etapa === e);
+      return (
+        <section class="col" aria-label={e}>
+          <h2>{e} <span>{lista.length}</span></h2>
+          {lista.map((c) => (
+            <div class="cand">
+              <span class="av" style={`background:hsl(${c.hue} 55% 38%)`} aria-hidden="true">{c.iniciales}</span>
+              <div><b>{c.nombre}</b><small>{c.puesto}</small></div>
+            </div>
+          ))}
+        </section>
+      );
+    })}
+  </div>
+</Ats>

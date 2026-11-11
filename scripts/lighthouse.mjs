@@ -29,6 +29,11 @@ const paginas = [
   ['ej-video-antes', 'ejemplos/video-antes/'],
   ['demo', 'demo/'],
   ['demo-como', 'demo/como-esta-hecha/'],
+  ['ats-login', 'ats/'],
+  ['ats-registro', 'ats/registro/'],
+  ['ats-panel', 'ats/panel/'],
+  ['ats-candidatos', 'ats/panel/candidatos/'],
+  ['ats-como', 'ats/como-esta-hecha/'],
   ['creditos', 'creditos/'],
   ['skill', 'skill/'],
 ];

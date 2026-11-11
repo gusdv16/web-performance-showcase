@@ -1,0 +1,31 @@
+---
+import '../styles/ats.css';
+const { title, activo = 'vacantes' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const enlaces = [
+  ['vacantes', 'Vacantes', base + 'ats/panel/'],
+  ['candidatos', 'Candidatos', base + 'ats/panel/candidatos/'],
+];
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>{title} | Talento Sur (demo)</title>
+  <meta name="description" content="Panel de demostración de un sistema de seguimiento de postulantes, con datos inventados.">
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+</head>
+<body>
+  <div class="demo">Demo con datos inventados. <a href={base + 'ats/como-esta-hecha/'}>Cómo está hecha</a> · <a href={base}>Sitio de performance</a></div>
+  <div class="app">
+    <nav class="side" aria-label="Principal">
+      <span class="logo">Talento Sur</span>
+      {enlaces.map(([id, t, h]) => <a href={h} aria-current={id === activo ? 'page' : undefined}>{t}</a>)}
+      <a class="out" href={base + 'ats/'}>Salir</a>
+    </nav>
+    <main class="content"><slot /></main>
+  </div>
+</body>
+</html>
