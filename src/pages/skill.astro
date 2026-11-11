@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+const raw = 'https://raw.githubusercontent.com/gusdv16/web-performance-showcase/main/skill/web-performance/SKILL.md';
+const repo = 'https://github.com/gusdv16/web-performance-showcase/blob/main/skill/web-performance/SKILL.md';
+---
+<Base title="Skill de optimización web para LLMs" description="Una skill (SKILL.md) que guía a un asistente de IA a medir y optimizar la performance de un sitio web sin inventar números.">
+  <h1>Skill de optimización web para LLMs</h1>
+  <p class="lead">Un archivo <code>SKILL.md</code> con el método de este sitio, para que un asistente de IA (por ejemplo Claude Code) audite y mejore la velocidad de un sitio de forma ordenada.</p>
+
+  <h2>Qué enseña a hacer</h2>
+  <ul>
+    <li><strong>Medir primero</strong> con Lighthouse sobre el build de producción, con la mediana de varias corridas.</li>
+    <li><strong>Diagnosticar</strong> por métrica: de qué viene un LCP alto, un TBT/INP alto o un CLS.</li>
+    <li><strong>Corregir por orden de rentabilidad</strong>: imágenes, sliders, CSS, fuentes, JavaScript, caché y compresión.</li>
+    <li><strong>Verificar y reportar</strong> con una tabla antes/después, sin inventar cifras.</li>
+  </ul>
+
+  <h2>Cómo usarla</h2>
+  <p>Descargá el archivo y copialo a la carpeta de skills de tu proyecto (en Claude Code: <code>.claude/skills/web-performance/SKILL.md</code>). Luego pedí, por ejemplo: «Mejorá la velocidad de esta página y mostrame el antes y el después».</p>
+  <p><a class="btn" href={repo}>Ver SKILL.md en GitHub</a></p>
+  <p><small>Descarga directa: <a href={raw}>archivo sin formato</a>.</small></p>
+</Base>

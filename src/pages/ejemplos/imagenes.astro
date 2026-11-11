@@ -1,0 +1,45 @@
+---
+// Tamaños reales de una misma imagen en distintos formatos y anchos, calculados en el build con sharp
+import fs from 'node:fs';
+import sharp from 'sharp';
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+const file = 'src/assets/galeria/g05.jpg';
+const original = fs.readFileSync(file);
+const widths = [480, 800, 1200];
+const kb = (b) => (b / 1024).toFixed(0).replace('.', ',') + ' KB';
+const filas = [];
+for (const w of widths) {
+  const r = sharp(original).resize({ width: w });
+  const [jpg, webp, avif] = await Promise.all([
+    r.clone().jpeg({ quality: 80, mozjpeg: true }).toBuffer(),
+    r.clone().webp({ quality: 70 }).toBuffer(),
+    r.clone().avif({ quality: 55 }).toBuffer(),
+  ]);
+  filas.push({ w, jpg: jpg.length, webp: webp.length, avif: avif.length });
+}
+---
+<Base title="Ejemplo: formatos y tamaños de imagen" description="La misma imagen en JPEG, WebP y AVIF a distintos anchos, con el peso real de cada archivo.">
+  <p><a href={base + 'ejemplos/'}>← Ejemplos</a></p>
+  <h1>Una imagen, muchos pesos</h1>
+  <p class="lead">Peso real de la misma imagen (original JPEG de 1600 px: <strong>{kb(original.length)}</strong>) según formato y ancho. Calculado durante el build de este sitio.</p>
+
+  <table>
+    <thead><tr><th>Ancho</th><th>JPEG (q80)</th><th>WebP (q70)</th><th>AVIF (q55)</th></tr></thead>
+    <tbody>
+      {filas.map((f) => (
+        <tr><td>{f.w} px</td><td>{kb(f.jpg)}</td><td>{kb(f.webp)}</td><td>{kb(f.avif)}</td></tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div class="note">La imagen es una ilustración sintética con detalle y grano, no una foto real: con tus propias fotos los pesos cambian, pero el orden de magnitud entre formatos y anchos se mantiene.</div>
+
+  <h2>Cómo leerlo</h2>
+  <ul>
+    <li>Un celular que muestra la imagen a 400 px no necesita el original: pasar de 1600 px a 480 px es la mejora más grande.</li>
+    <li>Cambiar de formato ahorra aún más a igual ancho. En esta imagen con grano WebP salió más liviano que AVIF; con fotos reales AVIF suele ganar, así que conviene medirlo con tus propias imágenes.</li>
+    <li>Con <code>srcset</code> el navegador elige solo la fila adecuada para su pantalla.</li>
+  </ul>
+  <p>Mirá estas ideas funcionando en el <a href={base + 'ejemplos/slider/'}>slider</a> y la <a href={base + 'ejemplos/galeria/'}>galería</a>.</p>
+</Base>

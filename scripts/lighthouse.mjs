@@ -19,6 +19,13 @@ const paginas = [
   ['laboratorio', 'laboratorio/'],
   ['lab-antes', 'laboratorio/antes/'],
   ['lab-despues', 'laboratorio/despues/'],
+  ['ejemplos', 'ejemplos/'],
+  ['ej-slider', 'ejemplos/slider/'],
+  ['ej-slider-antes', 'ejemplos/slider-antes/'],
+  ['ej-galeria', 'ejemplos/galeria/'],
+  ['ej-galeria-antes', 'ejemplos/galeria-antes/'],
+  ['ej-imagenes', 'ejemplos/imagenes/'],
+  ['skill', 'skill/'],
 ];
 const objetivos = paginas.map(([id, ruta]) => ({ id, url: baseUrl + ruta }));
 if (conExternos) objetivos.push({ id: 'ichiban4d-actual', url: 'https://ichiban4d.shop/', externo: true });

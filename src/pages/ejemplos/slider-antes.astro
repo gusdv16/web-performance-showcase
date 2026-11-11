@@ -1,0 +1,33 @@
+---
+// Versión deliberadamente mal optimizada del slider (para comparar). No indexable.
+import '../../styles/ejemplos.css';
+import { galeria } from '../../lib/galeria.js';
+const base = import.meta.env.BASE_URL;
+const slides = galeria.slice(0, 6);
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Ejemplo: slider sin optimizar</title>
+  <meta name="description" content="Versión deliberadamente lenta del slider, para comparar con la optimizada.">
+  <link rel="stylesheet" href={base + 'lab/antes.css'}>
+  <script is:inline src={base + 'lab/antes.js'}></script>
+</head>
+<body>
+  <header><a href={base + 'ejemplos/'}>← Ejemplos</a></header>
+  <main>
+    <h1>Slider sin optimizar</h1>
+    <p>Mismas imágenes y mismo desplazamiento, pero con el JPEG original de 1600 px en todos los tamaños de pantalla, las seis con carga inmediata y un script pesado en el head.</p>
+    <div class="slider" id="slider">
+      <div class="track">
+        {slides.map((s, i) => (
+          <figure class="slide" id={`s${i + 1}`}><img src={s.img.src} alt={s.alt}></figure>
+        ))}
+      </div>
+    </div>
+  </main>
+</body>
+</html>

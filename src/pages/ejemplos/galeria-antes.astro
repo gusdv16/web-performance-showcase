@@ -1,0 +1,28 @@
+---
+// Versión deliberadamente mal optimizada de la galería (para comparar). No indexable.
+import '../../styles/ejemplos.css';
+import { galeria } from '../../lib/galeria.js';
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Ejemplo: galería sin optimizar</title>
+  <meta name="description" content="Versión deliberadamente lenta de la galería, para comparar con la optimizada.">
+  <link rel="stylesheet" href={base + 'lab/antes.css'}>
+  <script is:inline src={base + 'lab/antes.js'}></script>
+</head>
+<body>
+  <header><a href={base + 'ejemplos/'}>← Ejemplos</a></header>
+  <main>
+    <h1>Galería sin optimizar</h1>
+    <p>Los JPEG originales de 1600 px mostrados como miniaturas, todos con carga inmediata y un script pesado en el head.</p>
+    <div class="grid">
+      {galeria.map((g) => <img src={g.img.src} alt={g.alt}>)}
+    </div>
+  </main>
+</body>
+</html>

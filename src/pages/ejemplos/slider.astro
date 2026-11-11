@@ -1,0 +1,36 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import '../../styles/ejemplos.css';
+import { galeria } from '../../lib/galeria.js';
+const base = import.meta.env.BASE_URL;
+const slides = galeria.slice(0, 6);
+---
+<Base title="Ejemplo: slider optimizado" description="Slider sin JavaScript, con imágenes AVIF/WebP responsive y carga diferida.">
+  <p><a href={base + 'ejemplos/'}>← Ejemplos</a></p>
+  <h1>Slider optimizado</h1>
+  <p class="lead">Deslizá con el dedo o el mouse, o usá los números. No hay una sola línea de JavaScript.</p>
+
+  <div class="slider" id="slider">
+    <div class="track">
+      {slides.map((s, i) => (
+        <figure class="slide" id={`s${i + 1}`}>
+          <Picture src={s.img} formats={['avif', 'webp']} widths={[480, 800, 1200]} sizes="(max-width: 46rem) 100vw, 46rem"
+            quality={55} alt={s.alt} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
+        </figure>
+      ))}
+    </div>
+    <nav class="dots" aria-label="Ir a la imagen">
+      {slides.map((_, i) => <a href={`#s${i + 1}`}>{i + 1}</a>)}
+    </nav>
+  </div>
+
+  <h2>Qué lo hace rápido</h2>
+  <ul>
+    <li><strong>Scroll nativo con <code>scroll-snap</code></strong> en lugar de una librería de sliders: 0 KB de JS y desplazamiento fluido en el hilo del compositor.</li>
+    <li><strong>Solo la primera imagen</strong> tiene <code>fetchpriority="high"</code> y carga inmediata; las otras cinco son <code>loading="lazy"</code>.</li>
+    <li><strong><code>&lt;picture&gt;</code> con AVIF y WebP</strong> y tres anchos (480, 800 y 1200 px): cada pantalla baja el tamaño justo.</li>
+    <li><strong><code>aspect-ratio</code> y dimensiones</strong> declaradas: el slider reserva su espacio y no hay saltos (CLS 0).</li>
+  </ul>
+  <p>Compará con la <a href={base + 'ejemplos/slider-antes/'}>versión sin optimizar</a>. Los números medidos están en la <a href={base + 'ejemplos/'}>página de ejemplos</a>.</p>
+</Base>

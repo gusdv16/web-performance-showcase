@@ -1,0 +1,27 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import '../../styles/ejemplos.css';
+import { galeria } from '../../lib/galeria.js';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Ejemplo: galería optimizada" description="Galería de 12 imágenes con AVIF/WebP responsive y lazy loading.">
+  <p><a href={base + 'ejemplos/'}>← Ejemplos</a></p>
+  <h1>Galería optimizada</h1>
+  <p class="lead">Doce imágenes. Solo las dos primeras se piden al abrir la página; el resto llega a medida que te acercás.</p>
+
+  <div class="grid">
+    {galeria.map((g, i) => (
+      <Picture src={g.img} formats={['avif', 'webp']} widths={[160, 320, 480]} sizes="(max-width: 40rem) 50vw, 160px"
+        quality={55} alt={g.alt} loading={i < 2 ? 'eager' : 'lazy'} fetchpriority={i < 2 ? 'high' : 'auto'} />
+    ))}
+  </div>
+
+  <h2>Qué lo hace rápido</h2>
+  <ul>
+    <li><strong>Miniaturas del tamaño que se muestran</strong>: 160 a 480 px según la densidad de pantalla, no el original de 1600 px.</li>
+    <li><strong>Lazy loading nativo</strong> para las diez imágenes que no se ven al abrir.</li>
+    <li><strong>Espacio reservado</strong> con <code>width</code>, <code>height</code> y <code>aspect-ratio</code>: nada salta mientras cargan.</li>
+  </ul>
+  <p>Compará con la <a href={base + 'ejemplos/galeria-antes/'}>versión sin optimizar</a>.</p>
+</Base>

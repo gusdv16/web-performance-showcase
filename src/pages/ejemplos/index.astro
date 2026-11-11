@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import data from '../../data/mediciones.json';
+const base = import.meta.env.BASE_URL;
+const P = data.paginas || {};
+const fmt = (ms) => (ms >= 1000 ? (ms / 1000).toFixed(1).replace('.', ',') + ' s' : ms + ' ms');
+const kb = (b) => (b >= 1048576 ? (b / 1048576).toFixed(1).replace('.', ',') + ' MB' : Math.round(b / 1024) + ' KB');
+const pares = [
+  ['Slider', 'ej-slider-antes', 'ej-slider', 'ejemplos/slider-antes/', 'ejemplos/slider/'],
+  ['Galería de 12 imágenes', 'ej-galeria-antes', 'ej-galeria', 'ejemplos/galeria-antes/', 'ejemplos/galeria/'],
+];
+const hay = pares.every(([, a, d]) => P[a] && P[d]);
+---
+<Base title="Ejemplos con imágenes y sliders" description="Sliders, galerías e imágenes responsive funcionando, en versión sin optimizar y optimizada, con mediciones reales.">
+  <h1>Ejemplos que funcionan</h1>
+  <p class="lead">Componentes comunes de cualquier sitio, hechos de las dos maneras. Abrilos en tu celular y mirá la diferencia, o medilos vos mismo.</p>
+
+  <ul class="cards">
+    <li class="card"><a href={base + 'ejemplos/slider/'}><h2>Slider</h2><p>Sin JavaScript, con <code>scroll-snap</code>, AVIF/WebP y lazy loading.</p></a></li>
+    <li class="card"><a href={base + 'ejemplos/galeria/'}><h2>Galería</h2><p>Doce miniaturas responsive que cargan a medida que te acercás.</p></a></li>
+    <li class="card"><a href={base + 'ejemplos/imagenes/'}><h2>Formatos de imagen</h2><p>El peso real de una imagen en JPEG, WebP y AVIF a tres anchos.</p></a></li>
+  </ul>
+
+  <h2>Antes y después, medido</h2>
+  {hay ? (
+    <>
+      <p><small>{data.fecha} · Lighthouse móvil · mediana de {data.corridas} corridas · {data.origen.startsWith('http://127') ? 'servidor local de producción' : 'sitio publicado'}</small></p>
+      <table>
+        <thead><tr><th>Ejemplo</th><th>Versión</th><th>Performance</th><th>LCP</th><th>CLS</th><th>Peso</th></tr></thead>
+        <tbody>
+          {pares.flatMap(([nombre, a, d, ra, rd]) => [
+            <tr><td rowspan="2">{nombre}</td><td><a href={base + ra}>Sin optimizar</a></td><td>{P[a].performance}</td><td>{fmt(P[a].lcp)}</td><td>{String(P[a].cls).replace('.', ',')}</td><td>{kb(P[a].bytes)}</td></tr>,
+            <tr><td><a href={base + rd}>Optimizada</a></td><td>{P[d].performance}</td><td>{fmt(P[d].lcp)}</td><td>{String(P[d].cls).replace('.', ',')}</td><td>{kb(P[d].bytes)}</td></tr>,
+          ])}
+        </tbody>
+      </table>
+      <p><small>Las versiones "sin optimizar" incluyen además un script síncrono que simula ~400 ms de trabajo de un tercero. Las imágenes son ilustraciones sintéticas con grano, no fotos reales.</small></p>
+    </>
+  ) : <p class="todo">Medición pendiente.</p>}
+</Base>
