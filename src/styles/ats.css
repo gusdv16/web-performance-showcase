@@ -60,7 +60,7 @@ td a{font-weight:600;text-decoration:none}
 tr[hidden]{display:none}
 .empty{padding:1rem;color:var(--muted)}
 .board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(15rem,1fr);gap:.75rem;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:.5rem}
-.col{background:#eaeef5;border-radius:.75rem;padding:.6rem;scroll-snap-align:start;min-height:12rem;content-visibility:auto;contain-intrinsic-size:auto 20rem}
+.col{background:#eaeef5;border-radius:.75rem;padding:.6rem;scroll-snap-align:start;min-height:12rem}
 .col h2{display:flex;justify-content:space-between;font-size:.95rem;padding:.25rem .35rem}
 .col h2 span{color:var(--muted);font-weight:600}
 .cand{display:flex;gap:.6rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:.6rem;padding:.55rem .65rem;margin-top:.5rem}

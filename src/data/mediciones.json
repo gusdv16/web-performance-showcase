@@ -5,22 +5,22 @@
   "origen": "https://gusdv16.github.io/web-performance-showcase/",
   "paginas": {
     "inicio": {
-      "performance": 94,
+      "performance": 95,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 836,
-      "lcp": 836,
-      "tbt": 283,
+      "fcp": 774,
+      "lcp": 774,
+      "tbt": 249,
       "cls": 0,
-      "speedIndex": 914,
-      "bytes": 7237,
+      "speedIndex": 774,
+      "bytes": 7453,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        98,
+        99,
         90,
-        94
+        95
       ]
     },
     "tecnicas": {
@@ -332,18 +332,18 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 888,
-      "lcp": 888,
-      "tbt": 115,
+      "fcp": 823,
+      "lcp": 823,
+      "tbt": 128,
       "cls": 0,
-      "speedIndex": 950,
-      "bytes": 7445,
+      "speedIndex": 823,
+      "bytes": 7344,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        99,
+        100,
         98,
-        100
+        99
       ]
     },
     "skill": {
@@ -363,6 +363,101 @@
         100,
         98,
         99
+      ]
+    },
+    "ats-login": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 944,
+      "lcp": 944,
+      "tbt": 28,
+      "cls": 0,
+      "speedIndex": 944,
+      "bytes": 8315,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "ats-registro": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "fcp": 902,
+      "lcp": 902,
+      "tbt": 125,
+      "cls": 0,
+      "speedIndex": 902,
+      "bytes": 8299,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        99
+      ]
+    },
+    "ats-panel": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "fcp": 963,
+      "lcp": 963,
+      "tbt": 5,
+      "cls": 0,
+      "speedIndex": 963,
+      "bytes": 13155,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "ats-candidatos": {
+      "performance": 100,
+      "accessibility": 94,
+      "bestPractices": 100,
+      "seo": 60,
+      "fcp": 824,
+      "lcp": 824,
+      "tbt": 28,
+      "cls": 0.045,
+      "speedIndex": 824,
+      "bytes": 11099,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "ats-como": {
+      "performance": 97,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 823,
+      "lcp": 823,
+      "tbt": 198,
+      "cls": 0,
+      "speedIndex": 823,
+      "bytes": 6700,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        98,
+        97,
+        96
       ]
     }
   }

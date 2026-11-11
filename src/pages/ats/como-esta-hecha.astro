@@ -21,10 +21,11 @@ const base = import.meta.env.BASE_URL;
     <li><strong>Datos en el HTML:</strong> la tabla de vacantes y el tablero salen ya renderizados en el build. No hay una petición a una API ni un "cargando…" antes de ver contenido.</li>
     <li><strong>Un script de ~700 bytes</strong> (en línea, sin archivo aparte) para la búsqueda y los filtros. Alterna el atributo <code>hidden</code> de las filas; no hay librerías ni framework.</li>
     <li><strong>Imagen lateral solo donde se ve:</strong> en el acceso, la foto es <code>loading="lazy"</code> y el panel se oculta en pantallas angostas, así que el celular no la descarga. En escritorio llega en AVIF/WebP del tamaño justo.</li>
-    <li><strong><code>content-visibility: auto</code></strong> en las columnas del tablero, para no renderizar lo que está fuera de pantalla.</li>
+    <li><strong>Tablero con scroll nativo</strong> (<code>overflow-x</code> con <code>scroll-snap</code>), accesible con teclado, sin librería de arrastrar y soltar.</li>
     <li><strong>Avatares sin imágenes:</strong> iniciales sobre un color calculado, cero peticiones.</li>
     <li><strong>Formularios nativos:</strong> <code>type="email"</code>, <code>autocomplete</code> y <code>required</code> en lugar de validadores en JavaScript.</li>
     <li><strong>CSS propio inline</strong> y fuentes del sistema.</li>
+    <li><strong>Páginas internas con <code>noindex</code></strong>, como corresponde a una aplicación privada: por eso su categoría SEO de Lighthouse no llega a 100, y está bien.</li>
   </ul>
 
   <div class="note">En una aplicación real, esta lógica la haría un framework con un API. La lección de performance es la misma: renderizar en el servidor o en el build, enviar el mínimo de JavaScript y cargar tarde lo que no se ve al abrir.</div>

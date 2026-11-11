@@ -6,7 +6,7 @@ import { candidatos, etapas } from '../../../data/ats.js';
   <div class="head">
     <div><h1>Candidatos</h1><span style="color:var(--muted)">Tablero por etapa del proceso</span></div>
   </div>
-  <div class="board">
+  <div class="board" tabindex="0" role="region" aria-label="Tablero de candidatos por etapa">
     {etapas.map((e) => {
       const lista = candidatos.filter((c) => c.etapa === e);
       return (
