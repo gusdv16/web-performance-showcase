@@ -2,82 +2,82 @@
   "fecha": "2026-11-11",
   "corridas": 3,
   "perfil": "Móvil (emulado, throttling simulado por defecto de Lighthouse)",
-  "origen": "http://127.0.0.1:4322/web-performance-showcase/",
+  "origen": "https://gusdv16.github.io/web-performance-showcase/",
   "paginas": {
     "inicio": {
-      "performance": 100,
+      "performance": 98,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 785,
-      "lcp": 785,
-      "tbt": 0,
+      "fcp": 985,
+      "lcp": 985,
+      "tbt": 180,
       "cls": 0,
-      "speedIndex": 785,
-      "bytes": 6887,
+      "speedIndex": 1047,
+      "bytes": 7030,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        98,
+        90,
+        99
+      ]
+    },
+    "tecnicas": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 913,
+      "lcp": 913,
+      "tbt": 93,
+      "cls": 0,
+      "speedIndex": 913,
+      "bytes": 6673,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         99,
-        100,
-        100
-      ]
-    },
-    "tecnicas": {
-      "performance": 100,
-      "accessibility": 100,
-      "bestPractices": 100,
-      "seo": 100,
-      "fcp": 817,
-      "lcp": 817,
-      "tbt": 0,
-      "cls": 0,
-      "speedIndex": 817,
-      "bytes": 6939,
-      "requests": 2,
-      "version": "13.6.0",
-      "corridas": [
-        100,
         99,
         100
       ]
     },
     "tecnica-imagenes": {
-      "performance": 100,
+      "performance": 97,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 863,
-      "lcp": 863,
-      "tbt": 48,
+      "fcp": 911,
+      "lcp": 911,
+      "tbt": 191,
       "cls": 0,
-      "speedIndex": 863,
-      "bytes": 10355,
+      "speedIndex": 1042,
+      "bytes": 10504,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        97,
+        99,
+        96
+      ]
+    },
+    "caso-real": {
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 836,
+      "lcp": 836,
+      "tbt": 171,
+      "cls": 0,
+      "speedIndex": 836,
+      "bytes": 9729,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         99,
-        100,
-        100
-      ]
-    },
-    "caso-real": {
-      "performance": 100,
-      "accessibility": 100,
-      "bestPractices": 100,
-      "seo": 100,
-      "fcp": 901,
-      "lcp": 901,
-      "tbt": 3,
-      "cls": 0,
-      "speedIndex": 901,
-      "bytes": 9870,
-      "requests": 2,
-      "version": "13.6.0",
-      "corridas": [
-        100,
-        100,
-        100
+        98,
+        98
       ]
     },
     "laboratorio": {
@@ -85,56 +85,56 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 847,
-      "lcp": 847,
-      "tbt": 110,
+      "fcp": 821,
+      "lcp": 821,
+      "tbt": 115,
       "cls": 0,
-      "speedIndex": 847,
-      "bytes": 6949,
+      "speedIndex": 821,
+      "bytes": 6709,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         99,
         99,
-        100
+        99
       ]
     },
     "lab-antes": {
-      "performance": 71,
+      "performance": 72,
       "accessibility": 100,
       "bestPractices": 96,
       "seo": 63,
-      "fcp": 2520,
-      "lcp": 58817,
+      "fcp": 2447,
+      "lcp": 39332,
       "tbt": 0,
       "cls": 0,
-      "speedIndex": 2520,
-      "bytes": 11811401,
+      "speedIndex": 2447,
+      "bytes": 11822046,
       "requests": 7,
       "version": "13.6.0",
       "corridas": [
-        71,
-        71,
+        44,
+        72,
         72
       ]
     },
     "lab-despues": {
-      "performance": 98,
+      "performance": 100,
       "accessibility": 100,
-      "bestPractices": 96,
+      "bestPractices": 100,
       "seo": 100,
-      "fcp": 607,
-      "lcp": 607,
-      "tbt": 167,
+      "fcp": 906,
+      "lcp": 906,
+      "tbt": 12,
       "cls": 0,
-      "speedIndex": 784,
-      "bytes": 10470,
+      "speedIndex": 906,
+      "bytes": 9562,
       "requests": 3,
       "version": "13.6.0",
       "corridas": [
         100,
-        98,
-        98
+        100,
+        100
       ]
     }
   }
