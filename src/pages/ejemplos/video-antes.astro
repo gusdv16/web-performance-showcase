@@ -1,0 +1,24 @@
+---
+// Versión deliberadamente mal optimizada del video (para comparar). No indexable.
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Ejemplo: video sin optimizar</title>
+  <meta name="description" content="Versión deliberadamente pesada del video, para comparar con la optimizada.">
+  <link rel="stylesheet" href={base + 'lab/antes.css'}>
+  <script is:inline src={base + 'lab/antes.js'}></script>
+</head>
+<body>
+  <header><a href={base + 'ejemplos/'}>← Ejemplos</a></header>
+  <main>
+    <h1>Video sin optimizar</h1>
+    <p>El mismo video en 1080p y calidad alta, con <code>preload="auto"</code>, sin portada, y un script pesado en el head.</p>
+    <video controls preload="auto" src={base + 'video/original-1080p.mp4'} style="width:100%"></video>
+  </main>
+</body>
+</html>

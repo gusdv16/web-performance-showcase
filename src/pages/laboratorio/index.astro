@@ -16,13 +16,13 @@ const kb = (b) => (b >= 1048576 ? (b / 1048576).toFixed(1).replace('.', ',') + '
   <table>
     <thead><tr><th>Aspecto</th><th>Antes</th><th>Después</th></tr></thead>
     <tbody>
-      <tr><td>Imagen</td><td>PNG original completo, sin dimensiones</td><td>AVIF, 480 y 800 px con <code>srcset</code>, con ancho y alto</td></tr>
+      <tr><td>Imagen</td><td>PNG original completo, sin dimensiones</td><td>AVIF, de 480 a 1600 px con <code>srcset</code>, con ancho y alto</td></tr>
       <tr><td>Prioridad</td><td>Sin pistas: el navegador adivina</td><td>Principal con <code>fetchpriority="high"</code>; las otras con <code>loading="lazy"</code></td></tr>
       <tr><td>CSS</td><td>Hoja externa que bloquea el render</td><td>CSS inline en el HTML</td></tr>
       <tr><td>JavaScript</td><td>Script síncrono en el head (simula un tercero pesado: ~400 ms de trabajo)</td><td>Ninguno</td></tr>
     </tbody>
   </table>
-  <p><small>La imagen es una ilustración sintética (degradado con ruido) generada por <code>scripts/gen-foto.mjs</code>, no una foto real.</small></p>
+  <p><small>La imagen es una foto de Go Wild en Unsplash (ver <a href={base + 'creditos/'}>créditos</a>).</small></p>
 
   <h2>Resultados medidos</h2>
   {a && d ? (

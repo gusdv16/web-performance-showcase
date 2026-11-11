@@ -1,0 +1,172 @@
+---
+// Landing de demostración: HTML estático, sin JavaScript, imágenes AVIF/WebP responsive.
+import { Picture } from 'astro:assets';
+import '../../styles/landing.css';
+import hero from '../../assets/hero/hero.jpg';
+import poster from '../../assets/video/poster.jpg';
+import { galeria } from '../../lib/galeria.js';
+const base = import.meta.env.BASE_URL;
+const destinos = galeria.slice(0, 6);
+const precios = ['120', '95', '80', '110', '140', '90'];
+const dias = ['3 días', '2 días', '1 día', '2 días', '4 días', '2 días'];
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rumbo Sur | Escapadas de naturaleza (demo)</title>
+  <meta name="description" content="Landing de demostración: escapadas de naturaleza con galería, video y formulario de reserva, hecha para cargar al instante.">
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+</head>
+<body>
+  <div class="demo-bar">Landing de demostración. Marca y datos ficticios. <a href={base}>← Volver al sitio de performance</a></div>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#inicio">Rumbo Sur</a>
+      <nav aria-label="Secciones">
+        <a href="#destinos">Destinos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#video">Video</a>
+        <a href="#reservar">Reservar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <Picture src={hero} formats={['avif', 'webp']} widths={[480, 800, 1200, 1600, 2400]} sizes="100vw" quality={50}
+        alt="Montañas rocosas con nieve bajo un cielo claro" loading="eager" fetchpriority="high" />
+      <div class="wrap">
+        <h1>Escapadas de naturaleza, sin complicaciones</h1>
+        <p>Salidas cortas a montañas, costas y bosques, con guías locales y grupos chicos.</p>
+        <a class="btn" href="#reservar">Reservar mi lugar</a>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <h2>Por qué viajar con nosotros</h2>
+        <p class="sub">Todo resuelto para que solo te ocupes de disfrutar.</p>
+        <div class="feats">
+          <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 20 10 6l4 7 3-4 4 11z"/></svg><h3>Guías locales</h3><p>Gente que conoce cada sendero y cada atajo.</p></div>
+          <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6M15 15c3 0 6 1.5 6 5"/></svg><h3>Grupos chicos</h3><p>Hasta 10 personas, para una experiencia cercana.</p></div>
+          <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M5 12h14"/><circle cx="12" cy="12" r="9"/></svg><h3>Todo incluido</h3><p>Traslados, comidas y seguro de viaje.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="destinos">
+      <div class="wrap">
+        <h2>Destinos</h2>
+        <p class="sub">Seis escapadas para empezar. Precios de ejemplo.</p>
+        <div class="dest">
+          {destinos.map((d, i) => (
+            <article class="dcard">
+              <Picture src={d.img} formats={['avif', 'webp']} widths={[400, 800]} sizes="(max-width: 34rem) 100vw, 360px" quality={55}
+                alt={d.alt} loading="lazy" />
+              <div>
+                <h3>{d.titulo}</h3>
+                <p>{dias[i]} · <span class="price">desde USD {precios[i]}</span></p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="wrap">
+        <h2>Galería</h2>
+        <p class="sub">Tocá una foto para verla grande. Funciona sin JavaScript.</p>
+        <div class="gal">
+          {galeria.map((g, i) => (
+            <a href={`#foto-${i + 1}`} aria-label={`Ampliar: ${g.alt}`}>
+              <Picture src={g.img} formats={['avif', 'webp']} widths={[160, 320, 480]} sizes="(max-width: 34rem) 45vw, 160px" quality={55}
+                alt={g.alt} loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </div>
+      {galeria.map((g, i) => (
+        <div class="lb" id={`foto-${i + 1}`} role="dialog" aria-label={g.titulo}>
+          <a class="x" href="#galeria" aria-label="Cerrar">×</a>
+          <a class="p" href={`#foto-${i === 0 ? galeria.length : i}`} aria-label="Foto anterior">‹</a>
+          <Picture src={g.img} formats={['avif', 'webp']} widths={[800, 1200, 1600]} sizes="100vw" quality={60}
+            alt={g.alt} loading="lazy" />
+          <a class="n" href={`#foto-${i + 2 > galeria.length ? 1 : i + 2}`} aria-label="Foto siguiente">›</a>
+        </div>
+      ))}
+    </section>
+
+    <section class="alt" id="video">
+      <div class="wrap">
+        <h2>Mirá cómo es</h2>
+        <p class="sub">El video no se descarga hasta que le das play.</p>
+        <div class="vid">
+          <video controls preload="none" width="854" height="480" poster={poster.src}>
+            <source src={base + 'video/recorrido-480.mp4'} type="video/mp4">
+            Tu navegador no puede reproducir este video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Lo que dicen los viajeros</h2>
+        <p class="sub">Comentarios de ejemplo, escritos para esta demo.</p>
+        <div class="quotes">
+          <blockquote>“Salimos de la ciudad el viernes y el sábado ya estábamos frente al mar.”<footer>Viajera de ejemplo</footer></blockquote>
+          <blockquote>“Grupo chico y guía excelente. Volvería mañana.”<footer>Viajero de ejemplo</footer></blockquote>
+          <blockquote>“Todo organizado, sin mirar el reloj ni el teléfono.”<footer>Viajera de ejemplo</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="reservar">
+      <div class="wrap">
+        <h2>Reservá tu lugar</h2>
+        <p class="sub">Completá el formulario y te escribimos. (Demo: no se guarda ningún dato.)</p>
+        <form action={base + 'demo/gracias/'} method="get">
+          <label>Nombre
+            <input type="text" name="nombre" autocomplete="name" required minlength="2">
+          </label>
+          <label>Correo electrónico
+            <input type="email" name="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <div class="row">
+            <label>Destino
+              <select name="destino" required>
+                <option value="" disabled selected>Elegí uno</option>
+                {destinos.map((d) => <option>{d.titulo}</option>)}
+              </select>
+            </label>
+            <label>Personas
+              <input type="number" name="personas" min="1" max="10" value="2" required inputmode="numeric">
+            </label>
+          </div>
+          <label class="chk"><input type="checkbox" name="acepto" required> <span>Acepto que me contacten por esta reserva.</span></label>
+          <button class="btn" type="submit">Enviar solicitud</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Preguntas frecuentes</h2>
+        <details><summary>¿Qué incluye el precio?</summary><p>Traslados, guía, comidas indicadas en cada salida y seguro de viaje.</p></details>
+        <details><summary>¿Puedo cancelar?</summary><p>Sí, hasta 7 días antes de la salida, sin costo. (Texto de ejemplo.)</p></details>
+        <details><summary>¿Necesito experiencia previa?</summary><p>No. Cada salida indica su nivel de dificultad.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="end">
+    <div class="wrap">
+      Rumbo Sur es una marca ficticia creada para esta demo. Fotos de Unsplash, vía Picsum: <a href={base + 'creditos/'}>créditos</a>.
+      <br>Hecho con Astro, sin JavaScript. <a href={base + 'demo/como-esta-hecha/'}>Cómo está hecha</a>.
+    </div>
+  </footer>
+</body>
+</html>

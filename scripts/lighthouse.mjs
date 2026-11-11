@@ -25,6 +25,11 @@ const paginas = [
   ['ej-galeria', 'ejemplos/galeria/'],
   ['ej-galeria-antes', 'ejemplos/galeria-antes/'],
   ['ej-imagenes', 'ejemplos/imagenes/'],
+  ['ej-video', 'ejemplos/video/'],
+  ['ej-video-antes', 'ejemplos/video-antes/'],
+  ['demo', 'demo/'],
+  ['demo-como', 'demo/como-esta-hecha/'],
+  ['creditos', 'creditos/'],
   ['skill', 'skill/'],
 ];
 const objetivos = paginas.map(([id, ruta]) => ({ id, url: baseUrl + ruta }));

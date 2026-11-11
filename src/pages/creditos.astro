@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { galeria } from '../lib/galeria.js';
+// Autor y página original de cada foto (según la API de Picsum)
+const fotos = [
+  ['g01', 'Paul Jarvis', 'https://unsplash.com/photos/6J--NXulQCs'],
+  ['g02', 'Paul Jarvis', 'https://unsplash.com/photos/Cm7oKel-X2Q'],
+  ['g03', 'Paul Jarvis', 'https://unsplash.com/photos/3MtiSMdnoCo'],
+  ['g04', 'Paul Jarvis', 'https://unsplash.com/photos/IQ1kOQTJrOQ'],
+  ['g05', 'Paul Jarvis', 'https://unsplash.com/photos/NYDo21ssGao'],
+  ['g06', 'Paul Jarvis', 'https://unsplash.com/photos/gkT4FfgHO5o'],
+  ['g07', 'Paul Jarvis', 'https://unsplash.com/photos/Ven2CV8IJ5A'],
+  ['g08', 'Jerry Adney', 'https://unsplash.com/photos/_WiFMBRT7Aw'],
+  ['g09', 'Jeffrey Kam', 'https://unsplash.com/photos/Nzw3HHsNHYU'],
+  ['g10', 'Margaret Barley', 'https://unsplash.com/photos/Qo51KwK1dKg'],
+  ['g11', 'Nicholas Swanson', 'https://unsplash.com/photos/d19by2PLaPc'],
+  ['g12', 'Paul Jarvis', 'https://unsplash.com/photos/I_9ILwtsl_k'],
+];
+---
+<Base title="Créditos de las fotos" description="Autores y origen de las fotos usadas en las demos de este sitio.">
+  <h1>Créditos</h1>
+  <p class="lead">Las fotos de las demos vienen de <a href="https://unsplash.com/" rel="noopener">Unsplash</a>, descargadas a través de <a href="https://picsum.photos/" rel="noopener">Picsum Photos</a>, y se usan bajo la licencia de Unsplash (uso libre, la atribución no es obligatoria pero se agradece).</p>
+  <table>
+    <thead><tr><th>Foto</th><th>Autor</th><th>Original</th></tr></thead>
+    <tbody>
+      {fotos.map(([id, autor, url], i) => <tr><td>{galeria[i]?.titulo}</td><td>{autor}</td><td><a href={url} rel="noopener">Ver en Unsplash</a></td></tr>)}
+      <tr><td>Imagen principal de la landing y del laboratorio</td><td>Go Wild</td><td><a href="https://unsplash.com/photos/V0yAek6BgGk" rel="noopener">Ver en Unsplash</a></td></tr>
+    </tbody>
+  </table>
+  <p>El video de ejemplo está hecho con ffmpeg a partir de tres de estas fotos (ver <code>scripts/gen-video.mjs</code>).</p>
+</Base>

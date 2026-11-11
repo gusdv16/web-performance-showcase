@@ -1,0 +1,22 @@
+---
+import '../../styles/landing.css';
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Gracias | Rumbo Sur (demo)</title>
+  <meta name="description" content="Confirmación de la solicitud de la landing de demostración.">
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+</head>
+<body>
+  <main class="wrap" style="padding-top:4rem;padding-bottom:4rem">
+    <h1>¡Gracias!</h1>
+    <p>Recibimos tu solicitud. Esta es una demo: <strong>no se guardó ningún dato</strong>.</p>
+    <p><a class="btn" href={base + 'demo/'}>Volver a la landing</a></p>
+  </main>
+</body>
+</html>

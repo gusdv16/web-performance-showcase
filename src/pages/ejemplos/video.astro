@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/ejemplos.css';
+import poster from '../../assets/video/poster.jpg';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Ejemplo: video optimizado" description="Video con portada, preload none y MP4 de 480p: no se descarga hasta que se le da play.">
+  <p><a href={base + 'ejemplos/'}>← Ejemplos</a></p>
+  <h1>Video optimizado</h1>
+  <p class="lead">Se ve la portada al instante; el video recién se baja cuando le das play.</p>
+
+  <video controls preload="none" width="854" height="480" poster={poster.src} style="width:100%;height:auto;aspect-ratio:16/9;border-radius:.75rem;background:#000">
+    <source src={base + 'video/recorrido-480.mp4'} type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
+
+  <h2>Qué lo hace rápido</h2>
+  <ul>
+    <li><strong><code>preload="none"</code></strong>: al abrir la página no se pide ni un byte del video.</li>
+    <li><strong>Imagen de portada (<code>poster</code>)</strong> en JPEG ya optimizado, con <code>width</code> y <code>height</code> para evitar saltos de diseño.</li>
+    <li><strong>Resolución acorde:</strong> 854×480 en lugar de 1920×1080. Para un reproductor del ancho de un celular, 1080p es desperdicio.</li>
+    <li><strong>H.264 con <code>faststart</code></strong> y bitrate ajustado, sin pista de audio porque este video no la usa.</li>
+  </ul>
+  <p>El archivo pasa de unos 8 MB (1080p, calidad alta) a unos 600 KB. Compará con la <a href={base + 'ejemplos/video-antes/'}>versión sin optimizar</a>.</p>
+</Base>

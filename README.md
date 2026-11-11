@@ -7,8 +7,11 @@ Sitio de muestra hecho con [Astro](https://astro.build) que demuestra **carga mu
 ## Qué incluye
 
 - **Técnicas** (10 páginas): Core Web Vitals (LCP, INP, CLS), imágenes WebP/AVIF, `srcset`/`sizes` y lazy loading, preload y prioridades, fuentes, CSS crítico, minimizar JavaScript, caché y CDN, compresión, y cómo medir con Lighthouse y PageSpeed.
-- **Caso real**: las mejoras aplicadas a un catálogo de posters 3D hecho con Astro (el código de ese proyecto es privado; acá solo se explican las técnicas).
+- **Landing completa** (`/demo/`): hero, destinos, galería con lightbox sin JavaScript, video, formulario de reserva y FAQ. Marca ficticia, sin JS.
+- **Ejemplos**: slider, galería, video y formatos de imagen, cada uno en versión sin optimizar y optimizada, con mediciones.
+- **Caso real**: las mejoras aplicadas a un catálogo de posters 3D hecho con Astro (el código de ese proyecto es privado; acá solo se explican las técnicas; el sitio es [ichiban4d.shop](https://ichiban4d.shop/)).
 - **Laboratorio**: la misma página sin optimizar y optimizada, medidas con el mismo método.
+- **Skill para IA** (`skill/web-performance/SKILL.md`): guía para que un asistente mida y optimice la performance de un sitio.
 
 ## Cómo es tan rápido
 
@@ -49,14 +52,20 @@ src/
   pages/          inicio, tecnicas/*.md, caso-real, laboratorio
   components/     Resultados.astro (puntajes medidos)
   data/           tecnicas.js (índice) y mediciones.json (resultados)
-  assets/foto.png imagen sintética del laboratorio (scripts/gen-foto.mjs)
-public/lab/       CSS y JS de la versión "antes" del laboratorio
-scripts/          lighthouse.mjs y gen-foto.mjs
+  assets/         fotos (galeria/, hero/) y portada del video
+public/lab/       CSS y JS de las versiones "antes"
+public/video/     video de ejemplo (1080p original y 480p optimizado)
+skill/            SKILL.md de optimización web para LLMs
+scripts/          lighthouse.mjs (mediciones) y gen-video.mjs (ffmpeg)
 ```
 
 ## Deploy
 
 Cada push a `main` ejecuta `.github/workflows/deploy.yml`, que construye el sitio y lo publica en GitHub Pages.
+
+## Créditos
+
+Las fotos son de Unsplash (descargadas vía Picsum Photos); autores en la página `/creditos/`. La marca "Rumbo Sur" de la landing es ficticia.
 
 ## Licencia
 

@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import Resultados from '../../components/Resultados.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Cómo está hecha la landing" description="Las técnicas de performance aplicadas a la landing de demostración y su medición con Lighthouse.">
+  <p><a href={base + 'demo/'}>← Ver la landing</a></p>
+  <h1>Cómo está hecha la landing</h1>
+  <p class="lead">Una página completa, con foto grande, galería, video y formulario, que se mantiene liviana.</p>
+
+  <h2>Resultado medido</h2>
+  <Resultados id="demo" />
+
+  <h2>Técnicas aplicadas</h2>
+  <ul>
+    <li><strong>Imagen principal (LCP):</strong> AVIF y WebP en cinco anchos (480 a 2400 px) con <code>srcset</code>, <code>fetchpriority="high"</code> y sin lazy loading.</li>
+    <li><strong>Destinos y galería:</strong> miniaturas del tamaño que se muestran y <code>loading="lazy"</code>.</li>
+    <li><strong>Lightbox sin JavaScript:</strong> cada foto grande es un bloque oculto que se muestra con el selector CSS <code>:target</code>; las versiones grandes son lazy, así que no se descargan hasta abrirlas.</li>
+    <li><strong>Video:</strong> <code>preload="none"</code>, imagen de portada (poster), MP4 (H.264) a 480p con <code>faststart</code>. No se descarga nada hasta el play.</li>
+    <li><strong>Formulario:</strong> HTML nativo con validación del navegador (<code>required</code>, <code>type="email"</code>, <code>autocomplete</code>), sin librerías.</li>
+    <li><strong>CSS inline</strong> en el HTML, <strong>fuentes del sistema</strong> y <strong>0 bytes de JavaScript</strong>.</li>
+    <li><strong>Accesibilidad:</strong> áreas táctiles de al menos 44 px, foco visible, textos alternativos y <code>prefers-reduced-motion</code>.</li>
+  </ul>
+  <p>El formulario es solo una demo: envía a una página de agradecimiento y no guarda datos. Las fotos están en los <a href={base + 'creditos/'}>créditos</a>.</p>
+</Base>
