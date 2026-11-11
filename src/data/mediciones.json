@@ -423,22 +423,22 @@
       ]
     },
     "ats-candidatos": {
-      "performance": 100,
-      "accessibility": 94,
+      "performance": 99,
+      "accessibility": 95,
       "bestPractices": 100,
       "seo": 60,
-      "fcp": 824,
-      "lcp": 824,
-      "tbt": 28,
-      "cls": 0.045,
-      "speedIndex": 824,
-      "bytes": 11099,
+      "fcp": 816,
+      "lcp": 816,
+      "tbt": 149,
+      "cls": 0,
+      "speedIndex": 816,
+      "bytes": 11138,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
+        99,
         100,
-        100,
-        100
+        99
       ]
     },
     "ats-como": {
