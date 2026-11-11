@@ -1,0 +1,102 @@
+---
+import Corp from '../../layouts/Corp.astro';
+import Foto from '../../components/Foto.astro';
+import { infra, servicios, casos, numeros, clientes, faqs } from '../../data/corp.js';
+const c = import.meta.env.BASE_URL + 'corp/';
+---
+<Corp title="Nodo Tecnología S.A. | Infraestructura y servicios de TI (demo)" actual="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Tecnología para que tu negocio <em>no se detenga.</em></h1>
+        <p>Infraestructura, soporte, consultoría y desarrollo en un solo lugar. Somos el socio que te acompaña en cada paso de tu evolución digital.</p>
+        <div class="btns">
+          <a class="cta dark" href={c + 'contacto/'}>Hablemos →</a>
+          <a class="cta" href="#servicios">Ver soluciones</a>
+        </div>
+      </div>
+      <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+        <circle cx="70" cy="215" r="48" fill="#fff" opacity=".18"/>
+        <rect x="110" y="40" width="96" height="230" rx="48" transform="rotate(-28 158 155)" fill="#fff" opacity=".2"/>
+        <rect x="215" y="40" width="96" height="230" rx="48" transform="rotate(-28 263 155)" fill="#fff" opacity=".2"/>
+        <circle cx="340" cy="70" r="40" fill="#8fd3ff" opacity=".35"/>
+      </svg>
+    </div>
+  </div>
+
+  <section class="s" id="servicios">
+    <div class="wrap">
+      <h2>Servicios y soluciones</h2>
+      <p class="lead">Desde el soporte del día a día hasta proyectos a medida.</p>
+      <div class="grid">
+        {servicios.map((s) => (
+          <article class="card">
+            <Foto id={s.foto} alt="" />
+            <div><h3>{s.titulo}</h3><p>{s.resumen}</p><a class="more" href={`${c}servicios/${s.slug}/`} aria-label={`Ver ${s.titulo}`}>Ver más</a></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="s alt">
+    <div class="wrap">
+      <div class="nums">
+        {numeros.map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>Infraestructura TI</h2>
+      <p class="lead">La base sobre la que corre tu empresa, bien diseñada y bien mantenida.</p>
+      <div class="grid">
+        {infra.map((s) => (
+          <article class="card">
+            <Foto id={s.foto} alt="" />
+            <div><h3>{s.titulo}</h3><p>{s.resumen}</p><a class="more" href={`${c}infraestructura/${s.slug}/`} aria-label={`Ver ${s.titulo}`}>Ver más</a></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="s alt">
+    <div class="wrap">
+      <h2>Experiencias</h2>
+      <p class="lead">Casos de empresas que confiaron en nosotros (ficticios).</p>
+      <div class="grid">
+        {casos.map((s) => (
+          <article class="card">
+            <Foto id={s.foto} alt="" />
+            <div><h3>{s.cliente}</h3><p>{s.resumen}</p><a class="more" href={`${c}experiencias/${s.slug}/`} aria-label={`Ver el caso de ${s.cliente}`}>Ver caso</a></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>Empresas que trabajan con nosotros</h2>
+      <p class="lead">Nombres ficticios, para ilustrar la sección de clientes.</p>
+      <div class="pills">{clientes.map((n) => <span>{n}</span>)}</div>
+    </div>
+  </section>
+
+  <section class="s alt">
+    <div class="wrap">
+      <h2>Preguntas frecuentes</h2>
+      {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>¿Hablamos de tu proyecto?</h2>
+      <p>Contanos qué necesitás y te respondemos en menos de un día hábil.</p>
+      <a class="cta solid" href={c + 'contacto/'}>Hablemos</a>
+    </div>
+  </section>
+</Corp>

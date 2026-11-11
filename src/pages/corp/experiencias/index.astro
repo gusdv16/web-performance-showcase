@@ -1,0 +1,5 @@
+---
+import CorpHub from '../../../components/CorpHub.astro';
+import { casos } from '../../../data/corp.js';
+---
+<CorpHub titulo="Experiencias" intro="Casos de empresas que confiaron en nosotros. Todos son ficticios, creados para esta demostración." items={casos} ruta="experiencias" actual="experiencias" etiqueta="Ver caso" tituloItem={(x) => x.cliente} />

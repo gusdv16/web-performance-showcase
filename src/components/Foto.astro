@@ -1,0 +1,8 @@
+---
+// Foto responsive (AVIF/WebP) de la demo corporativa
+import { Picture } from 'astro:assets';
+import { foto } from '../data/corp.js';
+const { id, alt = '', sizes = '(max-width: 50rem) 100vw, 400px', widths = [400, 800, 1200], eager = false, quality = 55 } = Astro.props;
+---
+<Picture src={foto(id)} formats={['avif', 'webp']} widths={widths} sizes={sizes} quality={quality} alt={alt}
+  loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" />

@@ -1,0 +1,14 @@
+---
+import Corp from '../../layouts/Corp.astro';
+const c = import.meta.env.BASE_URL + 'corp/';
+---
+<Corp title="Gracias | Nodo Tecnología S.A. (demo)" actual="">
+  <Fragment slot="head"><meta name="robots" content="noindex"></Fragment>
+  <section class="s">
+    <div class="wrap prose">
+      <h1>¡Gracias por escribirnos!</h1>
+      <p>Esto es una demo: <strong>no se guardó ningún dato</strong>. En un sitio real, te responderíamos en menos de un día hábil.</p>
+      <p><a class="cta line" href={c}>Volver al inicio</a></p>
+    </div>
+  </section>
+</Corp>

@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import Resultados from '../../components/Resultados.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Cómo está hecho el sitio corporativo" description="Técnicas de performance aplicadas a un sitio corporativo completo de varias páginas, con menús desplegables, fotos y formulario.">
+  <p><a href={base + 'corp/'}>← Ver el sitio</a></p>
+  <h1>Cómo está hecho el sitio corporativo</h1>
+  <p class="lead">Un sitio de empresa completo, como los que suelen hacerse con un gestor de contenidos y decenas de plugins, pero construido para ser liviano. La empresa, los textos y los clientes son ficticios.</p>
+
+  <h2>Resultado medido</h2>
+  <h3>Inicio</h3>
+  <Resultados id="corp-inicio" />
+  <h3>Detalle de un servicio</h3>
+  <Resultados id="corp-detalle" />
+  <h3>Contacto</h3>
+  <Resultados id="corp-contacto" />
+
+  <h2>Qué tiene</h2>
+  <ul>
+    <li>Inicio, nosotros, infraestructura TI (4 páginas), servicios (4 páginas), experiencias (3 casos), contacto y gracias: 19 páginas generadas desde un solo archivo de datos.</li>
+    <li>Menú con desplegables, botón "Hablemos", botón flotante de contacto, preguntas frecuentes y formulario.</li>
+  </ul>
+
+  <h2>Técnicas aplicadas</h2>
+  <ul>
+    <li><strong>Menús desplegables sin JavaScript:</strong> se abren con <code>:hover</code> y <code>:focus-within</code>, así que funcionan con mouse y teclado. En pantallas táctiles los enlaces principales llevan a páginas que listan sus secciones.</li>
+    <li><strong>Portada sin imagen pesada:</strong> la sección principal es texto sobre un fondo de color con formas en SVG en línea. El LCP es el titular, que aparece apenas llega el HTML.</li>
+    <li><strong>Fotos AVIF/WebP</strong> en tres tamaños con <code>srcset</code>; las de la parte baja son <code>loading="lazy"</code>, solo las primeras de cada página tienen prioridad alta.</li>
+    <li><strong>Plantillas y datos:</strong> las páginas de servicios, infraestructura y casos salen de plantillas y de un archivo de datos, así que agregar una es agregar un objeto.</li>
+    <li><strong>FAQ con <code>&lt;details&gt;</code></strong> en lugar de un acordeón de JavaScript.</li>
+    <li><strong>Formulario nativo</strong> con validación del navegador, y <code>autocomplete</code> para que complete el teléfono y el correo.</li>
+    <li><strong>Accesibilidad:</strong> áreas táctiles de 44 px o más, foco visible, contraste revisado, enlaces con nombre descriptivo y respeto por <code>prefers-reduced-motion</code>.</li>
+    <li><strong>CSS inline, fuentes del sistema y 0 bytes de JavaScript.</strong></li>
+  </ul>
+  <div class="note">Un sitio corporativo similar hecho con un gestor de contenidos típico suele cargar varios archivos de CSS y JavaScript de plugins, fuentes externas y un slider. Acá nada de eso es necesario. Las fotos están en los <a href={base + 'creditos/'}>créditos</a>.</div>
+</Base>

@@ -1,0 +1,38 @@
+---
+import Corp from '../../layouts/Corp.astro';
+import { servicios, infra, empresa } from '../../data/corp.js';
+const c = import.meta.env.BASE_URL + 'corp/';
+---
+<Corp title="Hablemos | Nodo Tecnología S.A. (demo)" actual="" description="Formulario de contacto de la demo corporativa. No se guarda ningún dato.">
+  <div class="pagehead"><div class="wrap"><h1>Hablemos</h1><p>Contanos qué necesitás. Esto es una demo: podés usar datos de prueba, meramente ilustrativos, y no se guarda nada.</p></div></div>
+  <section class="s">
+    <div class="wrap two" style="align-items:start">
+      <form class="contact" action={c + 'gracias/'} method="get">
+        <div class="row">
+          <label>Nombre<input type="text" name="nombre" autocomplete="name" required minlength="2"></label>
+          <label>Empresa<input type="text" name="empresa" autocomplete="organization"></label>
+        </div>
+        <div class="row">
+          <label>Correo electrónico<input type="email" name="email" autocomplete="email" inputmode="email" required></label>
+          <label>Teléfono<input type="tel" name="tel" autocomplete="tel" inputmode="tel"></label>
+        </div>
+        <label>Me interesa
+          <select name="interes" required>
+            <option value="" disabled selected>Elegí una opción</option>
+            {[...infra, ...servicios].map((x) => <option>{x.titulo}</option>)}
+            <option>Otra consulta</option>
+          </select>
+        </label>
+        <label>Mensaje<textarea name="mensaje" required minlength="10"></textarea></label>
+        <label class="chk"><input type="checkbox" name="acepto" required><span>Acepto que me contacten por esta consulta.</span></label>
+        <button class="btn" type="submit">Enviar mensaje</button>
+      </form>
+      <div class="prose">
+        <h2>Datos de contacto</h2>
+        <p>{empresa.ciudad}<br>{empresa.correo}</p>
+        <p>Horario de atención: lunes a viernes, de 9 a 18 h (ficticio).</p>
+        <p>Te respondemos en menos de un día hábil.</p>
+      </div>
+    </div>
+  </section>
+</Corp>

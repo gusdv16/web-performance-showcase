@@ -1,0 +1,9 @@
+---
+import CorpDetalle from '../../../components/CorpDetalle.astro';
+import { infra } from '../../../data/corp.js';
+export function getStaticPaths() {
+  return infra.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+---
+<CorpDetalle item={item} seccion="Infraestructura TI" rutaSeccion="infraestructura" actual="infra" />

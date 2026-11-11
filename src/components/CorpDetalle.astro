@@ -1,0 +1,47 @@
+---
+// Página de detalle de un servicio, infraestructura o caso
+import Corp from '../layouts/Corp.astro';
+import Foto from './Foto.astro';
+const { item, seccion, rutaSeccion, actual, esCaso = false } = Astro.props;
+const c = import.meta.env.BASE_URL + 'corp/';
+const titulo = esCaso ? item.titulo : item.titulo;
+---
+<Corp title={`${titulo} | Nodo Tecnología S.A. (demo)`} actual={actual} description={item.resumen}>
+  <div class="pagehead">
+    <div class="wrap">
+      <p class="crumbs"><a href={`${c}${rutaSeccion}/`}>{seccion}</a> / {esCaso ? item.cliente : item.titulo}</p>
+      <h1>{titulo}</h1>
+      <p>{item.resumen}</p>
+    </div>
+  </div>
+  <section class="s">
+    <div class="wrap two">
+      {esCaso ? (
+        <div class="prose">
+          <p><strong>Cliente:</strong> {item.cliente} · <strong>Sector:</strong> {item.sector}</p>
+          <h2>El desafío</h2><p>{item.desafio}</p>
+          <h2>La solución</h2><p>{item.solucion}</p>
+        </div>
+      ) : (
+        <div class="prose">
+          <p>{item.intro}</p>
+          <h2>Qué incluye</h2>
+          <ul class="check">{item.puntos.map((p) => <li>{p}</li>)}</ul>
+        </div>
+      )}
+      <Foto id={item.foto} alt="" eager sizes="(max-width: 50rem) 100vw, 560px" widths={[480, 800, 1200]} />
+    </div>
+  </section>
+  {esCaso && (
+    <section class="s alt">
+      <div class="wrap prose">
+        <h2>Resultados</h2>
+        <div class="res">{item.resultados.map((r) => <div>{r}</div>)}</div>
+        <p style="margin-top:1rem"><small>Caso ficticio, creado para esta demostración.</small></p>
+      </div>
+    </section>
+  )}
+  <section class="band">
+    <div class="wrap"><h2>¿Te interesa algo así?</h2><p>Contanos tu situación y armamos una propuesta a medida.</p><a class="cta solid" href={c + 'contacto/'}>Hablemos</a></div>
+  </section>
+</Corp>

@@ -1,0 +1,9 @@
+---
+import CorpDetalle from '../../../components/CorpDetalle.astro';
+import { servicios } from '../../../data/corp.js';
+export function getStaticPaths() {
+  return servicios.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+---
+<CorpDetalle item={item} seccion="Servicios y soluciones" rutaSeccion="servicios" actual="servicios" />

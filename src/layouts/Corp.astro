@@ -1,0 +1,67 @@
+---
+import '../styles/corp.css';
+import { empresa, infra, servicios, casos } from '../data/corp.js';
+const { title, description = 'Servicios de infraestructura y tecnología para empresas. Sitio de demostración con datos ficticios.', actual = '' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const c = base + 'corp/';
+const nav = [
+  { id: 'inicio', t: 'Inicio', h: c },
+  { id: 'nosotros', t: 'Nosotros', h: c + 'nosotros/' },
+  { id: 'infra', t: 'Infraestructura TI', h: c + 'infraestructura/', hijos: infra.map((x) => [x.titulo, c + 'infraestructura/' + x.slug + '/']) },
+  { id: 'servicios', t: 'Servicios y soluciones', h: c + 'servicios/', hijos: servicios.map((x) => [x.titulo, c + 'servicios/' + x.slug + '/']) },
+  { id: 'experiencias', t: 'Experiencias', h: c + 'experiencias/', hijos: casos.map((x) => [x.cliente, c + 'experiencias/' + x.slug + '/']) },
+];
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+  <slot name="head" />
+</head>
+<body>
+  <div class="demo">Sitio de demostración: empresa, textos y datos ficticios. <a href={base + 'corp/como-esta-hecha/'}>Cómo está hecho</a> · <a href={base}>Sitio de performance</a></div>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href={c} aria-label={`${empresa.nombre}, inicio`}>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="8" cy="30" r="6" fill="#fff"/><circle cx="32" cy="30" r="6" fill="#8fd3ff"/><circle cx="20" cy="9" r="6" fill="#fff"/><path d="M20 9 8 30M20 9l12 21M8 30h24" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/></svg>
+        <span>NODO<small>Tecnología S.A.</small></span>
+      </a>
+      <nav class="main" aria-label="Principal">
+        <ul>
+          {nav.map((n) => (
+            <li class={n.hijos ? 'dd' : undefined}>
+              <a href={n.h} aria-current={actual === n.id ? 'page' : undefined}>{n.t}</a>
+              {n.hijos && (
+                <ul class="menu">
+                  {n.hijos.map(([t, h]) => <li><a href={h}>{t}</a></li>)}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <a class="cta" href={c + 'contacto/'}>Hablemos</a>
+    </div>
+  </header>
+  <slot />
+  <footer class="end">
+    <div class="wrap">
+      <div class="cols">
+        <div><h3>{empresa.nombre}</h3><p>Tecnología para que tu negocio no se detenga. Empresa ficticia creada para esta demostración.</p></div>
+        <div><h3>Infraestructura TI</h3><ul>{infra.map((x) => <li><a href={c + 'infraestructura/' + x.slug + '/'}>{x.titulo}</a></li>)}</ul></div>
+        <div><h3>Servicios</h3><ul>{servicios.map((x) => <li><a href={c + 'servicios/' + x.slug + '/'}>{x.titulo}</a></li>)}</ul></div>
+        <div><h3>Contacto</h3><p>{empresa.ciudad}<br>{empresa.correo}</p></div>
+      </div>
+      <p class="fine">Demo de performance web hecha con Astro, sin JavaScript. Fotos de Unsplash, vía Picsum: <a href={base + 'creditos/'}>créditos</a>.</p>
+    </div>
+  </footer>
+  <a class="float" href={c + 'contacto/'} aria-label="Escribinos, ir al formulario de contacto">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.1-4.9A8 8 0 1 1 21 12z"/></svg>
+    Escribinos
+  </a>
+</body>
+</html>
