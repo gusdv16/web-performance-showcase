@@ -252,60 +252,60 @@
       ]
     },
     "ej-video": {
-      "performance": 86,
+      "performance": 100,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1188,
-      "lcp": 4220,
-      "tbt": 0,
+      "fcp": 1212,
+      "lcp": 1237,
+      "tbt": 59,
       "cls": 0,
-      "speedIndex": 1401,
-      "bytes": 665750,
+      "speedIndex": 1348,
+      "bytes": 59542,
       "requests": 9,
       "version": "13.6.0",
       "corridas": [
-        86,
-        84,
-        86
+        100,
+        98,
+        100
       ]
     },
     "ej-video-antes": {
-      "performance": 93,
+      "performance": 92,
       "accessibility": 100,
       "bestPractices": 96,
       "seo": 60,
-      "fcp": 2462,
-      "lcp": 2474,
-      "tbt": 110,
-      "cls": 0,
-      "speedIndex": 2462,
-      "bytes": 8442228,
+      "fcp": 2665,
+      "lcp": 2677,
+      "tbt": 14,
+      "cls": 0.013,
+      "speedIndex": 3316,
+      "bytes": 8475613,
       "requests": 13,
       "version": "13.6.0",
       "corridas": [
-        93,
+        92,
         94,
-        93
+        91
       ]
     },
     "demo": {
-      "performance": 84,
+      "performance": 99,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1362,
-      "lcp": 4533,
-      "tbt": 59,
+      "fcp": 1366,
+      "lcp": 1547,
+      "tbt": 0,
       "cls": 0,
-      "speedIndex": 1362,
-      "bytes": 1009604,
+      "speedIndex": 1366,
+      "bytes": 403403,
       "requests": 16,
       "version": "13.6.0",
       "corridas": [
-        100,
-        84,
-        84
+        99,
+        99,
+        100
       ]
     },
     "demo-como": {
@@ -313,18 +313,18 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 932,
-      "lcp": 932,
-      "tbt": 94,
+      "fcp": 816,
+      "lcp": 816,
+      "tbt": 98,
       "cls": 0,
-      "speedIndex": 1065,
-      "bytes": 6664,
+      "speedIndex": 816,
+      "bytes": 6649,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         99,
-        100,
-        98
+        99,
+        99
       ]
     },
     "creditos": {
