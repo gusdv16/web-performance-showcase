@@ -6,7 +6,8 @@ import PorQue from '../../components/CorpPorQue.astro';
 import Aliados from '../../components/CorpAliados.astro';
 import Testimonios from '../../components/CorpTestimonios.astro';
 import Proyecto from '../../components/CorpProyecto.astro';
-import { infra, servicios, casos, numeros, clientes, faqs } from '../../data/corp.js';
+import Grupo from '../../components/CorpGrupo.astro';
+import { foto, infra, servicios, casos, numeros, clientes, faqs } from '../../data/corp.js';
 const c = import.meta.env.BASE_URL + 'corp/';
 ---
 <Corp title="Nodo Tecnología S.A. | Infraestructura y servicios de TI (demo)" actual="inicio">
@@ -20,15 +21,11 @@ const c = import.meta.env.BASE_URL + 'corp/';
           <a class="cta" href="#servicios">Ver soluciones</a>
         </div>
       </div>
-      <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
-        <circle cx="70" cy="215" r="48" fill="#fff" opacity=".18"/>
-        <rect x="110" y="40" width="96" height="230" rx="48" transform="rotate(-28 158 155)" fill="#fff" opacity=".2"/>
-        <rect x="215" y="40" width="96" height="230" rx="48" transform="rotate(-28 263 155)" fill="#fff" opacity=".2"/>
-        <circle cx="340" cy="70" r="40" fill="#8fd3ff" opacity=".35"/>
-      </svg>
+      <img class="mark" src={c.replace("corp/", "") + "corp/marca.webp"} width="520" height="340" alt="" aria-hidden="true" decoding="async">
     </div>
   </div>
   <Metricas />
+  <Grupo />
 
   <section class="s" id="servicios">
     <div class="wrap">

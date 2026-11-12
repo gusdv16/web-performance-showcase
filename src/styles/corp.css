@@ -39,7 +39,7 @@ nav.main>ul>li:last-child .menu{left:auto;right:0}
 .hero p{font-size:1.15rem;max-width:34rem;margin:0 0 1.5rem}
 .hero .btns{display:flex;flex-wrap:wrap;gap:.75rem}
 .hero svg{width:100%;height:auto;max-height:22rem}
-@media (max-width:50rem){.hero .wrap{grid-template-columns:1fr;padding-top:2rem;padding-bottom:2.5rem}.hero svg{display:none}}
+@media (max-width:50rem){.hero .wrap{grid-template-columns:1fr;padding-top:2rem;padding-bottom:2.5rem}.hero svg,.hero .mark{display:none}}
 .pagehead{background:var(--blue);color:#fff;padding:2.5rem 0}
 .pagehead h1{font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.12;margin:0 0 .5rem}
 .pagehead p{margin:0;max-width:44rem;font-size:1.1rem;opacity:.95}
@@ -107,7 +107,10 @@ main#contenido,footer.end,.hero{overflow-x:clip}
 .mpair span{color:var(--muted);font-size:.98rem}
 
 /* ===== Cintas de clientes ===== */
-.marquee{overflow:hidden;margin:.6rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{overflow:hidden;margin:.6rem 0;position:relative}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:8%;z-index:1;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.marquee::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
 .marquee .track{display:flex;gap:.7rem;width:max-content}
 .marquee span{background:#fff;border:1px solid var(--line);border-radius:3rem;padding:.55rem 1.4rem;font-weight:700;color:var(--muted);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){
@@ -262,3 +265,94 @@ footer.end a.listo{background:#fff;color:var(--blue);border-radius:3rem;padding:
     .why-card:nth-child(even){animation-range:entry 12% entry 67%}
   }
 }
+
+/* ===== Segunda pasada: tipografía, hero, cinta, grupo, logos, opiniones ===== */
+body{font-family:Lato,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-weight:900;letter-spacing:-.015em}
+header.top{background:#0a56b8}
+nav.main a{font-weight:700;font-size:.93rem}
+.caret{display:inline-block;margin-left:.45rem;border:4px solid transparent;border-top-color:currentColor;border-bottom:0}
+a.search{display:inline-grid;place-items:center;width:2.4rem;height:2.4rem;border:1px solid rgba(255,255,255,.55);border-radius:50%;color:#fff}
+a.search:hover{background:#fff;color:var(--blue)}
+@media (max-width:56rem){a.search{display:none}}
+
+.hero{background:#0055ba}
+.hero .wrap{min-height:min(78vh,40rem);padding-top:3rem;padding-bottom:3rem}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.2rem);line-height:1.04;letter-spacing:-.03em;font-weight:900}
+.hero h1 em{color:#8fd3ff}
+.hero p{font-size:1.08rem;line-height:1.75;max-width:33rem}
+.hero .cta{min-height:54px;padding:0 1.6rem}
+.hero .cta.dark{background:linear-gradient(110deg,#050f23,#0a2a5c);border-color:transparent}
+.hero .cta:not(.dark){border-color:rgba(255,255,255,.5)}
+.hero svg{max-height:26rem;overflow:visible}
+.hero .mark{width:100%;height:auto;max-height:26rem;object-fit:contain}
+@media (prefers-reduced-motion:no-preference){
+  .hero svg rect,.hero svg circle{animation:none}
+}
+
+/* Cinta de cifras */
+.strip{padding:0;overflow:hidden}
+.ticker{overflow:hidden}
+.ticker .track{will-change:transform;display:flex;gap:3.2rem;list-style:none;margin:0;padding:1.5rem 1.6rem;width:max-content}
+.ticker li{white-space:nowrap;font-size:1.1rem;display:flex;gap:.5rem;align-items:baseline}
+.ticker b{font-size:1.55rem;font-weight:900}
+@media (prefers-reduced-motion:no-preference){.ticker .track{animation:cinta 34s linear infinite}.ticker:hover .track{animation-play-state:paused}}
+@media (prefers-reduced-motion:reduce){.ticker .track{flex-wrap:wrap;width:auto;justify-content:center}.ticker li[aria-hidden=true]{display:none}}
+
+/* Cuatro empresas, una visión */
+.group{padding:0;background:#fff;overflow:hidden}
+.group-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;padding-top:0;padding-bottom:0}
+.tiles{display:flex;list-style:none;margin:0;padding:0}
+.tiles li{width:11.25rem;height:18.75rem;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;gap:.2rem;padding:1.2rem .6rem}
+.tiles svg{width:2.6rem;height:2.6rem;fill:#fff;margin-bottom:.4rem}
+.tiles b{font-size:.95rem;line-height:1.15}
+.tiles small{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.t1{background:#0055ba}.t2{background:#1c63ef}.t3{background:#0c78c7}.t4{background:#18aaec;color:#06264d!important}
+.t4 svg{fill:#06264d}
+.group-text{margin:0;font-size:clamp(1.6rem,3.2vw,2.7rem);line-height:1.15;font-weight:900;letter-spacing:-.02em;color:#0a56b8}
+.group-text .n,.group-text strong{color:#0b79c9}
+@media (max-width:56rem){.group-grid{grid-template-columns:1fr;gap:1.5rem;padding-bottom:2rem}.tiles li{width:25%;height:11rem}.tiles small{display:none}}
+
+/* Por qué elegirnos: tipografía y botón */
+.why-card h3{font-size:1.5rem;line-height:1.1}
+.pill-btn{display:inline-flex;align-items:center;min-height:44px;margin-top:1rem;padding:0 1.1rem;border:1px solid #bcd3f5;border-radius:3rem;background:#eaf2fe;color:#0a56b8;font-weight:700;font-size:.9rem;text-decoration:none}
+.pill-btn:hover{background:#0a56b8;color:#fff}
+
+/* Aliados: logotipos en cintas */
+.partners-sec h2 em,.testi h2 em{font-style:normal;color:#1c63ef}
+.logos{margin:2rem 0}
+.lrow{overflow:hidden;margin:1.2rem 0;position:relative}
+.lrow::before,.lrow::after{content:"";position:absolute;top:0;bottom:0;width:8%;z-index:1;pointer-events:none}
+.lrow::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.lrow::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.lrow .track{will-change:transform}
+.lrow .track{display:flex;align-items:center;gap:3.5rem;list-style:none;margin:0;padding:0;width:max-content;min-width:100%;justify-content:center}
+.lrow li{font-size:1.5rem;color:#6b7686;white-space:nowrap;padding:.3rem 0}
+.w0{font-weight:300;letter-spacing:.04em}.w1{font-weight:900;text-transform:uppercase;letter-spacing:-.02em}.w2{font-style:italic;font-weight:700}.w3{letter-spacing:.3em;text-transform:uppercase;font-size:1.1rem!important}.w4{font-weight:400;font-variant:small-caps;letter-spacing:.06em}
+.r0 li{font-size:1.9rem}
+@media (prefers-reduced-motion:no-preference){
+  .r1 .track{animation:cinta 40s linear infinite;justify-content:flex-start}
+  .r2 .track{animation:cinta 46s linear infinite reverse;justify-content:flex-start}
+  .lrow:hover .track{animation-play-state:paused}
+}
+@media (prefers-reduced-motion:reduce){.lrow .track{flex-wrap:wrap;width:auto}.lrow li[aria-hidden=true]{display:none}}
+.cta-card{margin-top:2.5rem;background:linear-gradient(110deg,#0a56b8,#1c63ef 60%,#18aaec);color:#fff;border-radius:1.6rem;padding:2rem 2.4rem;display:flex;gap:1.5rem;align-items:center;justify-content:space-between;text-align:left;box-shadow:0 22px 50px rgba(10,86,184,.28)}
+.cta-card h3{margin:0 0 .3rem;font-size:1.6rem}
+.cta-card p{margin:0}
+@media (max-width:50rem){.cta-card{flex-direction:column;align-items:flex-start}}
+
+/* Opiniones: tarjeta con marca grande, datos y botón; flechas fuera de la tarjeta */
+.testi{background:#f3f4f6}
+.carousel{position:relative}
+.slides{overflow-x:auto;border-radius:0;padding:0 8px 8px 0}
+.slide{padding:2.2rem 2rem 2rem;box-shadow:6px 6px 0 #e2e4e8;text-align:center}
+.slide .brand{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:900;color:#1b8bc7;letter-spacing:-.03em;margin:0 0 1.2rem}
+.slide figcaption{margin-bottom:.6rem}
+.slide figcaption b{font-size:1.05rem;color:#0a0a0a}
+.slide blockquote{max-width:58rem}
+.more-btn{display:inline-flex;align-items:center;min-height:46px;padding:0 1.5rem;border-radius:3rem;background:#2f5cff;color:#fff;font-weight:700;text-decoration:none}
+.more-btn:hover{background:#1c40c9}
+.arrows a{position:absolute;top:50%;translate:0 -50%;z-index:2}
+.arrows a:first-child{left:.8rem}.arrows a:last-child{right:.8rem}
+@media (max-width:50rem){.slide{padding:1.6rem 3.4rem}}
+@media (max-width:34rem){.slide{padding:1.4rem 1rem 4.2rem}.arrows a{top:auto;bottom:.8rem;translate:none}.arrows a:first-child{left:calc(50% - 3.2rem)}.arrows a:last-child{right:calc(50% - 3.2rem)}}

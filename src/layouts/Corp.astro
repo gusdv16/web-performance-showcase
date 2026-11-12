@@ -1,5 +1,11 @@
 ---
+import '@fontsource/lato/latin-400.css';
+import '@fontsource/lato/latin-700.css';
+import '@fontsource/lato/latin-900.css';
 import '../styles/corp.css';
+import lato4 from '@fontsource/lato/files/lato-latin-400-normal.woff2?url';
+import lato7 from '@fontsource/lato/files/lato-latin-700-normal.woff2?url';
+import lato9 from '@fontsource/lato/files/lato-latin-900-normal.woff2?url';
 import { empresa, infra, servicios, casos } from '../data/corp.js';
 const { title, description = 'Servicios de infraestructura y tecnología para empresas. Sitio de demostración con datos ficticios.', actual = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
@@ -20,6 +26,7 @@ const nav = [
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+  {[lato4, lato7, lato9].map((f) => <link rel="preload" as="font" type="font/woff2" href={f} crossorigin>)}
   <slot name="head" />
 </head>
 <body>
@@ -34,7 +41,7 @@ const nav = [
         <ul>
           {nav.map((n) => (
             <li class={n.hijos ? 'dd' : undefined}>
-              <a href={n.h} aria-current={actual === n.id ? 'page' : undefined}>{n.t}</a>
+              <a href={n.h} aria-current={actual === n.id ? 'page' : undefined}>{n.t}{n.hijos && <i class="caret" aria-hidden="true"></i>}</a>
               {n.hijos && (
                 <ul class="menu">
                   {n.hijos.map(([t, h]) => <li><a href={h}>{t}</a></li>)}
@@ -44,6 +51,7 @@ const nav = [
           ))}
         </ul>
       </nav>
+      <a class="search" href={c + 'contacto/'} aria-label="Buscar o consultar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a>
       <a class="cta" href={c + 'contacto/'}>Hablemos</a>
     </div>
   </header>

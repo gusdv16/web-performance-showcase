@@ -114,7 +114,11 @@ export const porque = [
   ['Décadas de continuidad', 'Una empresa estable, con clientes que nos acompañan hace años (ficticio).'],
 ];
 
-export const aliados = ['Servidores Alfa', 'RedCore', 'NubeSur', 'Segura360', 'DatosPlus', 'Soporte Norte', 'CloudAndes', 'Licencias Pro'];
+export const aliados = ['Servidores Alfa', 'RedCore', 'NubeSur', 'Segura360', 'DatosPlus', 'Soporte Norte', 'CloudAndes', 'Licencias Pro', 'Vektor', 'Nimbus IT', 'Atlas Redes', 'Pixelar', 'Kondor', 'Delta Backup', 'Sigma Data', 'Orbita', 'Lumen Cloud', 'Tramo', 'Cobalto', 'Nexo Labs', 'Mallku', 'Andino Sec', 'Fénix', 'Zafiro'];
+
+export const cinta = [['3', 'Sedes'], ['3', 'Certificaciones'], ['24/7', 'Soporte continuo'], ['+15', 'Años de experiencia'], ['+120', 'Clientes'], ['+40', 'Colaboradores'], ['+20', 'Alianzas tecnológicas']];
+
+export const grupo = [['Nodo Tecnología', 'infraestructura y soporte'], ['Nodo Servicios', 'outsourcing de TI'], ['Nodo Industrial', 'sistemas y automatización'], ['Nodo Cloud', 'nube y datacenter']];
 
 export const testimonios = [
   { marca: 'Distribuidora del Plata', quien: 'Marta Ibarra', cargo: 'Gerente de operaciones', texto: 'Pasamos de apagar incendios a tener la tecnología bajo control. Los cortes bajaron y el equipo ahora se dedica al negocio.' },

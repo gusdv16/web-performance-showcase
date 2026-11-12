@@ -2,18 +2,20 @@
 // Carrusel de opiniones con scroll-snap; las flechas son enlaces (sin JavaScript)
 import { testimonios } from '../data/corp.js';
 const n = testimonios.length;
+const c = import.meta.env.BASE_URL + 'corp/';
 ---
-<section class="s alt" id="opiniones">
+<section class="s alt testi" id="opiniones">
   <div class="wrap center">
-    <h2>La tecnología vale cuando transforma algo real</h2>
-    <p class="lead">Opiniones de ejemplo (ficticias) de clientes de largo plazo.</p>
+    <h2>La tecnología vale cuando <em>transforma algo real.</em></h2>
+    <p class="lead">Opiniones de ejemplo (ficticias) de clientes con los que construimos relaciones de largo plazo.</p>
     <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Opiniones de clientes">
       <div class="slides">
         {testimonios.map((t, i) => (
           <figure class="slide" id={`op${i + 1}`} aria-label={`Opinión ${i + 1} de ${n}`}>
             <p class="brand">{t.marca}</p>
-            <blockquote><p>“{t.texto}”</p></blockquote>
             <figcaption><b>{t.quien}</b><span>{t.cargo}</span></figcaption>
+            <blockquote><p>“{t.texto}”</p></blockquote>
+            <a class="more-btn" href={c + 'experiencias/'}>Conocé más</a>
             <nav class="arrows" aria-label="Cambiar opinión">
               <a href={`#op${i === 0 ? n : i}`} aria-label="Opinión anterior">‹</a>
               <a href={`#op${i === n - 1 ? 1 : i + 2}`} aria-label="Opinión siguiente">›</a>

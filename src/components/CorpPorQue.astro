@@ -11,6 +11,7 @@ import { porque } from '../data/corp.js';
           <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           <h3>{t}</h3>
           <p>{d}</p>
+          <a class="pill-btn" href={import.meta.env.BASE_URL + 'corp/nosotros/'}>Conocé más <span class="sr">sobre {t}</span> →</a>
         </article>
       ))}
     </div>

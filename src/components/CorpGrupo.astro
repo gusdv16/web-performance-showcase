@@ -1,0 +1,12 @@
+---
+// "4 empresas, 1 visión": cuatro paneles de color y un mensaje (empresas ficticias del grupo)
+import { grupo } from '../data/corp.js';
+---
+<section class="group" id="grupo">
+  <div class="wrap group-grid">
+    <ul class="tiles" aria-label="Empresas del grupo (ficticias)">
+      {grupo.map(([n, s], i) => <li class={`t${i + 1}`}><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="9" cy="30" r="6"/><circle cx="31" cy="30" r="6"/><circle cx="20" cy="9" r="6"/></svg><b>{n}</b><small>{s}</small></li>)}
+    </ul>
+    <p class="group-text"><span class="n">4</span> empresas <span class="n">1</span> visión compartida<br>Juntas <strong>CONSTRUYENDO FUTURO</strong></p>
+  </div>
+</section>

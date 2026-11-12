@@ -1,13 +1,25 @@
 ---
-// Ecosistema de aliados tecnológicos (nombres ficticios)
+// Ecosistema de aliados: logotipos ficticios (solo texto) en cintas que se mueven en sentidos opuestos
 import { aliados } from '../data/corp.js';
+const filas = [aliados.slice(0, 5), aliados.slice(5, 13), aliados.slice(13)];
+const c = import.meta.env.BASE_URL + 'corp/';
 ---
-<section class="s" id="aliados">
+<section class="s partners-sec" id="aliados">
   <div class="wrap center">
-    <h2>Tecnología respaldada por un ecosistema líder</h2>
-    <p class="lead">Marcas y fabricantes ficticios, para ilustrar la sección de aliados.</p>
-    <ul class="partners">
-      {aliados.map((n) => <li>{n}</li>)}
-    </ul>
+    <h2>Tecnología respaldada<br>por un <em>ecosistema líder</em></h2>
+    <div class="logos" role="group" aria-label="Aliados tecnológicos (ficticios)">
+      {filas.map((f, i) => (
+        <div class={`lrow r${i}`}>
+          <ul class="track">
+            {f.map((n, j) => <li class={`w${j % 5}`}>{n}</li>)}
+            {i > 0 && f.map((n, j) => <li class={`w${j % 5}`} aria-hidden="true">{n}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="cta-card">
+      <div><h3>¿Listo para transformar tu organización?</h3><p>Nuestros especialistas te responderán en menos de 24 horas.</p></div>
+      <a class="cta solid" href={c + 'contacto/'}>Agendar conversación →</a>
+    </div>
   </div>
 </section>
