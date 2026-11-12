@@ -178,6 +178,8 @@ main#contenido,footer.end,.hero{overflow-x:clip}
   @media (prefers-reduced-motion:no-preference){
     section.s h2,section.s .lead,.card,.res div,.two>*,ul.check li,details,.band>.wrap>*{
       animation-name:aparece;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:view();animation-range:entry 0% entry 55%}
+    /* Lo que ya se ve al cargar no se anima: nunca queda a medio aparecer */
+    .hero+section.s :is(h2,.lead,.card,.two>*,ul.check li),.pagehead+section.s :is(h2,.lead,.card,.two>*,ul.check li){animation-name:none}
     .grid>.card:nth-child(2){animation-range:entry 8% entry 63%}
     .grid>.card:nth-child(3){animation-range:entry 16% entry 71%}
     .grid>.card:nth-child(4){animation-range:entry 24% entry 79%}
