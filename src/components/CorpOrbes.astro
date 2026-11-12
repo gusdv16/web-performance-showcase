@@ -1,0 +1,11 @@
+---
+// Los tres círculos del logo, grandes, con una foto cada uno. Parallax al bajar (solo CSS).
+import { getImage } from 'astro:assets';
+import { foto } from '../data/corp.js';
+const orbes = await Promise.all([[36, 'o1'], [88, 'o2'], [84, 'o3']].map(async ([id, cls]) => ({
+  cls, img: await getImage({ src: foto(id), width: 360, height: 360, format: 'webp', quality: 40 }),
+})));
+---
+<div class="orbs" aria-hidden="true">
+  {orbes.map((o) => <span class={`orb ${o.cls}`}><img src={o.img.src} width="360" height="360" alt="" decoding="async" loading="eager" fetchpriority="low"></span>)}
+</div>

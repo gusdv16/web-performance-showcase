@@ -6,6 +6,7 @@ import PorQue from '../../components/CorpPorQue.astro';
 import Aliados from '../../components/CorpAliados.astro';
 import Testimonios from '../../components/CorpTestimonios.astro';
 import Proyecto from '../../components/CorpProyecto.astro';
+import Orbes from '../../components/CorpOrbes.astro';
 import Grupo from '../../components/CorpGrupo.astro';
 import { foto, infra, servicios, casos, numeros, clientes, faqs } from '../../data/corp.js';
 const c = import.meta.env.BASE_URL + 'corp/';
@@ -21,7 +22,7 @@ const c = import.meta.env.BASE_URL + 'corp/';
           <a class="cta" href="#servicios">Ver soluciones</a>
         </div>
       </div>
-      <img class="mark" src={c.replace("corp/", "") + "corp/marca.webp"} width="520" height="340" alt="" aria-hidden="true" decoding="async">
+      <Orbes />
     </div>
   </div>
   <Metricas />
