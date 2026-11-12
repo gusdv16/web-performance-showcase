@@ -613,22 +613,60 @@
       ]
     },
     "demos": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 936,
+      "lcp": 936,
+      "tbt": 93,
+      "cls": 0,
+      "speedIndex": 936,
+      "bytes": 5758,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        97,
+        99
+      ]
+    },
+    "promo": {
       "performance": 100,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 773,
-      "lcp": 773,
-      "tbt": 85,
+      "fcp": 1474,
+      "lcp": 1474,
+      "tbt": 0,
       "cls": 0,
-      "speedIndex": 773,
-      "bytes": 5437,
+      "speedIndex": 1474,
+      "bytes": 62499,
+      "requests": 4,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        100
+      ]
+    },
+    "promo-como": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 936,
+      "lcp": 936,
+      "tbt": 117,
+      "cls": 0,
+      "speedIndex": 1055,
+      "bytes": 7543,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        97,
-        100,
-        100
+        99,
+        99,
+        97
       ]
     }
   }
