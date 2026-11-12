@@ -26,3 +26,14 @@ const c = import.meta.env.BASE_URL + 'corp/';
     </div>
   </div>
 </section>
+<script is:inline>
+// Las flechas desplazan solo el carrusel (sin mover la página); sin JS siguen funcionando como anclas
+document.querySelectorAll('.carousel .arrows a').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var s = a.closest('.slides'), w = s.clientWidth, n = s.children.length;
+    var i = Math.round(s.scrollLeft / w) + (a.parentNode.firstElementChild === a ? -1 : 1);
+    s.scrollTo({ left: ((i + n) % n) * (s.scrollWidth / n), behavior: 'smooth' });
+  });
+});
+</script>

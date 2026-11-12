@@ -356,3 +356,9 @@ a.search:hover{background:#fff;color:var(--blue)}
 .arrows a:first-child{left:.8rem}.arrows a:last-child{right:.8rem}
 @media (max-width:50rem){.slide{padding:1.6rem 3.4rem}}
 @media (max-width:34rem){.slide{padding:1.4rem 1rem 4.2rem}.arrows a{top:auto;bottom:.8rem;translate:none}.arrows a:first-child{left:calc(50% - 3.2rem)}.arrows a:last-child{right:calc(50% - 3.2rem)}}
+
+/* Tarjeta completa clicable: el enlace "Ver más" se extiende sobre toda la tarjeta */
+.card{position:relative;cursor:pointer}
+.card a.more::before{content:"";position:absolute;inset:0;z-index:1}
+.card:has(a.more:focus-visible){outline:3px solid #ffb703;outline-offset:2px}
+.card a.more:focus-visible{outline:none}
