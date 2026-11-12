@@ -43,6 +43,8 @@ const paginas = [
   ['corp-contacto', 'corp/contacto/'],
   ['corp-como', 'corp/como-esta-hecha/'],
   ['demos', 'demos/'],
+  ['promo', 'promo/'],
+  ['promo-como', 'promo/como-esta-hecha/'],
   ['creditos', 'creditos/'],
   ['skill', 'skill/'],
 ];

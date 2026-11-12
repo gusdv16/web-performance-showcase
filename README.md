@@ -9,6 +9,7 @@ Sitio de muestra hecho con [Astro](https://astro.build) que demuestra **carga mu
 - **Técnicas** (10 páginas): Core Web Vitals (LCP, INP, CLS), imágenes WebP/AVIF, `srcset`/`sizes` y lazy loading, preload y prioridades, fuentes, CSS crítico, minimizar JavaScript, caché y CDN, compresión, y cómo medir con Lighthouse y PageSpeed.
 - **Landing completa** (`/demo/`): hero, destinos, galería con lightbox sin JavaScript, video, formulario de reserva y FAQ. Marca ficticia, sin JS.
 - **Sitio corporativo** (`/corp/`): empresa de servicios de TI ficticia, 19 páginas (inicio, nosotros, infraestructura, servicios, casos, contacto), menús desplegables y formulario, sin JavaScript.
+- **Landing publicitaria** (`/promo/`): café por suscripción con oferta, cuenta regresiva (único JS, ~500 bytes), planes, suscripción y barra fija en móvil.
 - **App con panel** (`/ats/`): acceso, panel de vacantes con filtros y tablero de candidatos (datos inventados).
 - **Ejemplos**: slider, galería, video y formatos de imagen, cada uno en versión sin optimizar y optimizada, con mediciones.
 - **Caso real**: las mejoras aplicadas a un catálogo de posters 3D hecho con Astro (el código de ese proyecto es privado; acá solo se explican las técnicas; el sitio es [ichiban4d.shop](https://ichiban4d.shop/)).

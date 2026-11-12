@@ -2,12 +2,13 @@
 import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<Base title="Demos completas" description="Tres sitios de demostración completos, con datos ficticios, hechos para cargar rápido.">
+<Base title="Demos completas" description="Cuatro sitios de demostración completos, con datos ficticios, hechos para cargar rápido.">
   <h1>Demos completas</h1>
-  <p class="lead">Tres tipos de sitio muy comunes, hechos de cero para ser livianos. Todo el contenido es ficticio.</p>
+  <p class="lead">Cuatro tipos de sitio muy comunes, hechos de cero para ser livianos. Todo el contenido es ficticio.</p>
   <ul class="cards">
     <li class="card"><a href={base + 'corp/'}><h2>Sitio corporativo</h2><p>Empresa de servicios de TI: inicio, nosotros, servicios, infraestructura, casos y contacto (19 páginas).</p></a></li>
     <li class="card"><a href={base + 'demo/'}><h2>Landing page</h2><p>Escapadas de naturaleza: hero, galería con lightbox, video y formulario de reserva.</p></a></li>
+    <li class="card"><a href={base + 'promo/'}><h2>Landing publicitaria</h2><p>Café de especialidad por suscripción: oferta, cuenta regresiva, planes y formulario de suscripción.</p></a></li>
     <li class="card"><a href={base + 'ats/'}><h2>App con panel</h2><p>Sistema de seguimiento de postulantes: acceso, panel con filtros y tablero.</p></a></li>
   </ul>
   <p>Cada una tiene su página "Cómo está hecha", con las técnicas aplicadas y las mediciones de Lighthouse.</p>

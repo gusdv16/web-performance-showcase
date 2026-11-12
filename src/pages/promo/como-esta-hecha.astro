@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import Resultados from '../../components/Resultados.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Cómo está hecha la landing publicitaria" description="Técnicas de performance y conversión aplicadas a una landing para anuncios: oferta, cuenta regresiva, suscripción y barra fija en móvil.">
+  <p><a href={base + 'promo/'}>← Ver la landing</a></p>
+  <h1>Cómo está hecha la landing publicitaria</h1>
+  <p class="lead">Una página pensada para recibir tráfico de anuncios, donde cada segundo de carga cuesta conversiones. La marca, las ofertas y los comentarios son ficticios.</p>
+
+  <h2>Resultado medido</h2>
+  <Resultados id="promo" />
+
+  <h2>Qué tiene</h2>
+  <ul>
+    <li>Oferta de lanzamiento con <strong>cuenta regresiva</strong> hasta la medianoche.</li>
+    <li>Tres planes con precio tachado, y un plan destacado.</li>
+    <li><strong>Formulario de suscripción</strong> y, aparte, una suscripción rápida a una guía gratuita (captura de correo).</li>
+    <li>Testimonios, garantía, preguntas frecuentes y <strong>barra fija de acción</strong> en el celular.</li>
+  </ul>
+
+  <h2>Técnicas de performance</h2>
+  <ul>
+    <li><strong>La imagen principal es el LCP y se trata como tal:</strong> AVIF/WebP en tres anchos, <code>fetchpriority="high"</code> y sin lazy loading. En móvil va arriba del titular, ya con su tamaño reservado.</li>
+    <li><strong>Todo lo demás, diferido:</strong> las otras fotos son <code>loading="lazy"</code>; no se bajan hasta que el visitante se acerca.</li>
+    <li><strong>Un solo script de ~500 bytes</strong>, en línea, para la cuenta regresiva. Sin JavaScript, la página muestra «Solo por hoy» y sigue funcionando. Sin analítica ni píxeles que frenen la carga.</li>
+    <li><strong>Formularios nativos</strong> con validación del navegador, <code>autocomplete</code> e <code>inputmode</code>, para que en el celular aparezca el teclado correcto y se autocomplete.</li>
+    <li><strong>Barra fija en móvil sin JavaScript:</strong> aparece tras bajar un poco con una animación ligada al scroll (<code>animation-timeline: scroll()</code>).</li>
+    <li><strong>Animaciones solo de <code>opacity</code> y <code>transform</code></strong>, y desactivadas si el visitante pide menos movimiento.</li>
+    <li><strong>CSS inline y fuentes del sistema:</strong> una sola petición de HTML para pintar.</li>
+  </ul>
+
+  <h2>Por qué importa en publicidad</h2>
+  <p>En una landing de anuncios, el visitante llegó con un clic pagado y poca paciencia. Cuanto más rápido carga y más claro es el siguiente paso, más baja el costo por conversión. Por eso la oferta, el botón y el formulario están a la vista sin esperar a nada.</p>
+  <div class="note">Fotos: ver <a href={base + 'creditos/'}>créditos</a>. Los precios, plazos y comentarios son de ejemplo.</div>
+</Base>

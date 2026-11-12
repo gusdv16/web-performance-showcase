@@ -1,0 +1,229 @@
+---
+// Landing publicitaria de demostración (marca ficticia): oferta, cuenta regresiva y suscripción.
+import { Picture } from 'astro:assets';
+import '../../styles/promo.css';
+import p63 from '../../assets/promo/p63.jpg';
+import p30 from '../../assets/promo/p30.jpg';
+import p42 from '../../assets/promo/p42.jpg';
+const base = import.meta.env.BASE_URL;
+const gracias = base + 'promo/gracias/';
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grano Sur | Café de especialidad en tu casa (demo)</title>
+  <meta name="description" content="Landing publicitaria de demostración: suscripción mensual de café de especialidad con oferta de lanzamiento. Marca ficticia.">
+  <link rel="icon" href={base + 'favicon.svg'} type="image/svg+xml">
+</head>
+<body>
+  <div class="demo">Landing publicitaria de demostración: marca, precios y testimonios ficticios. <a href={base + 'promo/como-esta-hecha/'}>Cómo está hecha</a> · <a href={base}>Sitio de performance</a></div>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="9" ry="13" transform="rotate(35 16 16)" fill="#3b2417"/><path d="M10 25c6-3 8-9 12-18" stroke="#fbf5ec" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+        Grano Sur
+      </a>
+      <a class="btn sm" href="#suscribirme">Quiero mi caja</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="badge">Oferta de lanzamiento: 30 % menos en tu primera caja</span>
+          <h1>Café de especialidad, recién tostado, en tu casa cada mes</h1>
+          <p class="sub">Elegimos y tostamos granos de pequeños productores y te los enviamos frescos, sin que tengas que salir a buscarlos.</p>
+          <ul class="tick">
+            <li>Tostado la semana del envío</li>
+            <li>Envío gratis a todo el país</li>
+            <li>Sin permanencia: pausás o cancelás cuando quieras</li>
+          </ul>
+          <div class="timer" role="timer" aria-label="Tiempo restante de la oferta">
+            <span id="t-txt">Solo por hoy</span>
+            <span id="t-box" hidden><b id="t-h">00</b>h <b id="t-m">00</b>m <b id="t-s">00</b>s</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn pulse" href="#suscribirme">Quiero mi primera caja con 30 % de descuento</a>
+            <p class="micro">Pagás recién cuando te la enviamos. Podés cancelar en cualquier momento.</p>
+          </div>
+        </div>
+        <div class="pic">
+          <Picture src={p63} formats={['avif', 'webp']} widths={[480, 720, 1000]} sizes="(max-width: 50rem) 100vw, 500px" quality={55}
+            alt="Taza de café con leche vista desde arriba sobre un fondo rojo" loading="eager" fetchpriority="high" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <div class="strip">
+      <div class="wrap"><span>☕ Tostado esta semana</span><span>🚚 Envío gratis</span><span>↩ Sin permanencia</span></div>
+    </div>
+
+    <section class="s">
+      <div class="wrap center">
+        <h2>Cómo funciona</h2>
+        <p class="lead">Tres pasos y el café llega a tu puerta.</p>
+        <ol class="steps" style="text-align:left">
+          <li><h3>Elegís tu plan</h3><p>Una bolsa o dos por mes, en grano o molido para tu cafetera.</p></li>
+          <li><h3>Tostamos para vos</h3><p>Preparamos tu pedido la semana del envío, para que llegue en su mejor momento.</p></li>
+          <li><h3>Lo recibís y lo disfrutás</h3><p>Pausás, cambiás de plan o cancelás cuando quieras, sin llamadas.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="s white">
+      <div class="wrap two">
+        <div class="pic">
+          <Picture src={p30} formats={['avif', 'webp']} widths={[480, 720, 1000]} sizes="(max-width: 50rem) 100vw, 500px" quality={55}
+            alt="Taza de café con una etiqueta ilustrada sobre un fondo cálido" loading="lazy" />
+        </div>
+        <div>
+          <h2>Qué vas a recibir</h2>
+          <p class="lead" style="margin-bottom:1rem">Cada caja trae cafés distintos, con su historia y consejos para prepararlos.</p>
+          <ul class="tick">
+            <li>Una o dos bolsas de 250 g de café de origen único</li>
+            <li>Una tarjeta con notas de cata y el productor</li>
+            <li>Una guía de preparación para tu método favorito</li>
+            <li>Acceso a descuentos para suscriptores</li>
+          </ul>
+          <a class="btn line" href="#planes">Ver planes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="planes">
+      <div class="wrap center">
+        <h2>Elegí tu plan</h2>
+        <p class="lead">Todos incluyen envío gratis y el 30 % de descuento en la primera caja. Precios de ejemplo.</p>
+        <div class="plans" style="text-align:left">
+          <article class="plan">
+            <h3>Clásico</h3>
+            <p class="price"><s>USD 18</s>USD 12,6 <small>primera caja</small></p>
+            <ul><li>1 bolsa de 250 g por mes</li><li>Grano o molido</li><li>Notas de cata</li></ul>
+            <a class="btn line" href="#suscribirme">Elegir Clásico</a>
+          </article>
+          <article class="plan top">
+            <span class="tag">Más elegido</span>
+            <h3>Premium</h3>
+            <p class="price"><s>USD 26</s>USD 18,2 <small>primera caja</small></p>
+            <ul><li>2 bolsas de 250 g por mes</li><li>Cafés de edición limitada</li><li>Guía de preparación</li><li>Descuentos para suscriptores</li></ul>
+            <a class="btn" href="#suscribirme">Elegir Premium</a>
+          </article>
+          <article class="plan">
+            <h3>Para regalar</h3>
+            <p class="price"><s>USD 32</s>USD 22,4 <small>primera caja</small></p>
+            <ul><li>3 meses de suscripción</li><li>Tarjeta de regalo personalizada</li><li>Envío a otra dirección</li></ul>
+            <a class="btn line" href="#suscribirme">Elegir Regalo</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="s white">
+      <div class="wrap">
+        <h2 class="center">Lo que dicen nuestros suscriptores</h2>
+        <p class="lead center">Opiniones de ejemplo, escritas para esta demo.</p>
+        <div class="quotes">
+          <blockquote><p class="stars" aria-label="5 de 5 estrellas">★★★★★</p><p>“El primer café que me hizo dejar de comprar en el súper. Llegó fresquísimo.”</p><footer>Suscriptora de ejemplo</footer></blockquote>
+          <blockquote><p class="stars" aria-label="5 de 5 estrellas">★★★★★</p><p>“Me encanta que pueda pausar un mes cuando viajo. Cero vueltas.”</p><footer>Suscriptor de ejemplo</footer></blockquote>
+          <blockquote><p class="stars" aria-label="5 de 5 estrellas">★★★★★</p><p>“Se lo regalé a mi papá y ahora me pide la guía de preparación.”</p><footer>Suscriptora de ejemplo</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="wrap">
+        <div class="guar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <p><strong>Garantía de satisfacción.</strong> Si tu primera caja no te encanta, te devolvemos el dinero. Sin preguntas. (Texto de ejemplo.)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s formband" id="suscribirme">
+      <div class="wrap formgrid">
+        <div>
+          <h2>Empezá hoy con 30 % de descuento</h2>
+          <p class="lead">Completá tus datos. Esto es una demo: podés usar datos de prueba, meramente ilustrativos, y no se guarda nada.</p>
+          <div class="news">
+            <h3 style="margin:0 0 .3rem">¿Todavía no te decidís?</h3>
+            <p style="margin:0 0 .8rem">Recibí gratis la guía «5 formas de preparar mejor tu café» y novedades de vez en cuando.</p>
+            <form action={gracias} method="get">
+              <label class="sr" for="mail-guia" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Correo electrónico</label>
+              <input id="mail-guia" type="email" name="guia" placeholder="tu@correo.com" autocomplete="email" inputmode="email" required>
+              <button class="btn" type="submit">Quiero la guía</button>
+            </form>
+          </div>
+        </div>
+        <form class="sub" action={gracias} method="get">
+          <div class="row">
+            <label>Nombre<input type="text" name="nombre" autocomplete="given-name" required minlength="2"></label>
+            <label>Correo electrónico<input type="email" name="email" autocomplete="email" inputmode="email" required></label>
+          </div>
+          <div class="row">
+            <label>Plan
+              <select name="plan" required><option>Clásico</option><option selected>Premium</option><option>Para regalar</option></select>
+            </label>
+            <label>Molienda
+              <select name="molienda"><option>En grano</option><option>Para filtro</option><option>Para espresso</option></select>
+            </label>
+          </div>
+          <label class="chk"><input type="checkbox" name="acepto" required><span>Acepto recibir mi caja y comunicaciones sobre mi suscripción.</span></label>
+          <button class="btn" type="submit">Suscribirme con 30 % de descuento</button>
+          <p class="micro" style="margin:0">Sin permanencia. Cancelás cuando quieras.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="wrap">
+        <h2>Preguntas frecuentes</h2>
+        <details><summary>¿Cuándo llega mi primera caja?</summary><p>Tostamos y despachamos en la semana siguiente a tu suscripción. (Texto de ejemplo.)</p></details>
+        <details><summary>¿Puedo cambiar de plan?</summary><p>Sí, en cualquier momento desde tu cuenta, sin costo.</p></details>
+        <details><summary>¿Cómo cancelo?</summary><p>Con un clic desde el correo de cada envío. No hace falta llamar a nadie.</p></details>
+        <details><summary>¿Tienen café para cafetera italiana o prensa francesa?</summary><p>Sí. Elegís la molienda al suscribirte y podés cambiarla cuando quieras.</p></details>
+      </div>
+    </section>
+
+    <section class="s white">
+      <div class="wrap two">
+        <div>
+          <h2>Un café mejor empieza por el origen</h2>
+          <p class="lead">Trabajamos con pequeños productores y tostamos en lotes chicos, para cuidar cada grano.</p>
+          <a class="btn" href="#suscribirme">Quiero mi caja</a>
+        </div>
+        <div class="pic">
+          <Picture src={p42} formats={['avif', 'webp']} widths={[480, 720, 1000]} sizes="(max-width: 50rem) 100vw, 500px" quality={55}
+            alt="Mesa de madera de una cafetería con una taza de café" loading="lazy" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="end">
+    <div class="wrap">Grano Sur es una marca ficticia creada para esta demostración. Fotos de Unsplash vía Picsum: <a href={base + 'creditos/'}>créditos</a>. Hecho con Astro; el único JavaScript es la cuenta regresiva (unos 500 bytes).</div>
+  </footer>
+
+  <div class="sticky">
+    <span>30 % de descuento<br>en tu primera caja</span>
+    <a class="btn sm" href="#suscribirme">Suscribirme</a>
+  </div>
+
+  <script is:inline>
+    // Cuenta regresiva hasta la medianoche (hora local). Sin JS se muestra "Solo por hoy".
+    (function () {
+      var b = document.getElementById('t-box'), x = document.getElementById('t-txt');
+      var h = document.getElementById('t-h'), m = document.getElementById('t-m'), s = document.getElementById('t-s');
+      function p(n) { return (n < 10 ? '0' : '') + n; }
+      function t() {
+        var n = new Date(), e = new Date(n); e.setHours(24, 0, 0, 0);
+        var d = Math.floor((e - n) / 1000);
+        h.textContent = p(Math.floor(d / 3600)); m.textContent = p(Math.floor(d % 3600 / 60)); s.textContent = p(d % 60);
+      }
+      t(); x.textContent = 'La oferta termina en'; b.hidden = false; setInterval(t, 1000);
+    })();
+  </script>
+</body>
+</html>
