@@ -97,6 +97,7 @@ footer.end .fine{margin-top:2rem;border-top:1px solid #1b3357;padding-top:1rem;f
 .float{position:fixed;right:1rem;bottom:1rem;z-index:30;display:inline-flex;align-items:center;gap:.5rem;min-height:52px;padding:0 1.2rem;border-radius:3rem;background:var(--wa);color:#fff;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .float:hover{background:#085a2e}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+main#contenido,footer.end,.hero{overflow-x:clip}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ===== Cifras rotativas (siempre visibles apiladas si hay poco movimiento) ===== */
@@ -180,7 +181,7 @@ footer.end .fine{margin-top:2rem;border-top:1px solid #1b3357;padding-top:1rem;f
     .grid>.card:nth-child(2){animation-range:entry 8% entry 63%}
     .grid>.card:nth-child(3){animation-range:entry 16% entry 71%}
     .grid>.card:nth-child(4){animation-range:entry 24% entry 79%}
-    .two>*:last-child{animation-name:apareceDer}
+    @media (min-width:50.01rem){.two>*:last-child{animation-name:apareceDer}}
     @keyframes aparece{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
     @keyframes apareceDer{from{opacity:0;translate:40px 0}to{opacity:1;translate:0 0}}
     /* El encabezado gana sombra al bajar */
