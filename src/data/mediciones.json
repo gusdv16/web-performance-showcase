@@ -461,41 +461,41 @@
       ]
     },
     "corp-inicio": {
-      "performance": 100,
-      "accessibility": 96,
-      "bestPractices": 100,
-      "seo": 100,
-      "fcp": 1284,
-      "lcp": 1284,
-      "tbt": 2,
-      "cls": 0,
-      "speedIndex": 1284,
-      "bytes": 178747,
-      "requests": 9,
-      "version": "13.6.0",
-      "corridas": [
-        100,
-        100,
-        100
-      ]
-    },
-    "corp-nosotros": {
-      "performance": 100,
+      "performance": 98,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1009,
-      "lcp": 1009,
-      "tbt": 39,
+      "fcp": 1982,
+      "lcp": 1982,
+      "tbt": 18,
       "cls": 0,
-      "speedIndex": 1009,
-      "bytes": 61169,
+      "speedIndex": 2157,
+      "bytes": 162358,
+      "requests": 8,
+      "version": "13.6.0",
+      "corridas": [
+        98,
+        100,
+        97
+      ]
+    },
+    "corp-nosotros": {
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1092,
+      "lcp": 1092,
+      "tbt": 171,
+      "cls": 0,
+      "speedIndex": 1092,
+      "bytes": 61405,
       "requests": 4,
       "version": "13.6.0",
       "corridas": [
-        100,
-        100,
-        100
+        99,
+        98,
+        98
       ]
     },
     "corp-infra": {
@@ -503,36 +503,36 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1094,
-      "lcp": 1250,
+      "fcp": 1143,
+      "lcp": 1222,
       "tbt": 0,
       "cls": 0,
-      "speedIndex": 1094,
-      "bytes": 111018,
+      "speedIndex": 1143,
+      "bytes": 111228,
       "requests": 6,
       "version": "13.6.0",
       "corridas": [
-        99,
+        100,
         100,
         100
       ]
     },
     "corp-detalle": {
-      "performance": 100,
+      "performance": 99,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1251,
-      "lcp": 1251,
-      "tbt": 22,
+      "fcp": 1190,
+      "lcp": 1190,
+      "tbt": 136,
       "cls": 0,
-      "speedIndex": 1595,
-      "bytes": 33571,
+      "speedIndex": 1538,
+      "bytes": 33784,
       "requests": 3,
       "version": "13.6.0",
       "corridas": [
-        100,
         99,
+        98,
         100
       ]
     },
@@ -541,37 +541,37 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1255,
-      "lcp": 1255,
-      "tbt": 0,
+      "fcp": 1148,
+      "lcp": 1148,
+      "tbt": 22,
       "cls": 0,
-      "speedIndex": 1730,
-      "bytes": 79621,
+      "speedIndex": 1148,
+      "bytes": 79227,
       "requests": 5,
       "version": "13.6.0",
       "corridas": [
-        100,
         99,
+        100,
         100
       ]
     },
     "corp-caso": {
-      "performance": 100,
+      "performance": 99,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1095,
-      "lcp": 1095,
-      "tbt": 82,
+      "fcp": 1148,
+      "lcp": 1148,
+      "tbt": 130,
       "cls": 0,
-      "speedIndex": 1095,
-      "bytes": 47148,
+      "speedIndex": 1148,
+      "bytes": 47396,
       "requests": 3,
       "version": "13.6.0",
       "corridas": [
         100,
-        100,
-        100
+        99,
+        99
       ]
     },
     "corp-contacto": {
@@ -579,37 +579,37 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 1306,
-      "lcp": 1306,
-      "tbt": 79,
+      "fcp": 1365,
+      "lcp": 1365,
+      "tbt": 39,
       "cls": 0,
-      "speedIndex": 1560,
-      "bytes": 18925,
+      "speedIndex": 1704,
+      "bytes": 19111,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
         100,
-        99,
-        100
+        100,
+        98
       ]
     },
     "corp-como": {
-      "performance": 97,
+      "performance": 98,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "fcp": 832,
-      "lcp": 832,
-      "tbt": 196,
+      "fcp": 884,
+      "lcp": 884,
+      "tbt": 165,
       "cls": 0,
-      "speedIndex": 832,
-      "bytes": 10791,
+      "speedIndex": 964,
+      "bytes": 11161,
       "requests": 2,
       "version": "13.6.0",
       "corridas": [
-        91,
         98,
-        97
+        98,
+        95
       ]
     },
     "demos": {
