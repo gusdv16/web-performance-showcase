@@ -401,3 +401,7 @@ header.top .cta{color:var(--hfg);border-color:var(--hfg)}
     100%{--hbg:#ffffff;--hfg:#0f2a4d;--hhov:rgba(10,86,184,.1);--hacc:#29a3f0;box-shadow:0 6px 22px rgba(7,26,53,.16)}
   }
 }}
+
+/* Los controles del encabezado no hacen transición de color: sus colores ya cambian con el scroll */
+header.top .cta,header.top a.search{transition:transform .2s}
+@media (prefers-reduced-motion:no-preference){header.top .cta,header.top a.search{transition:transform .2s}}
