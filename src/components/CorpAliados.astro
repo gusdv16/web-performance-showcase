@@ -1,0 +1,13 @@
+---
+// Ecosistema de aliados tecnológicos (nombres ficticios)
+import { aliados } from '../data/corp.js';
+---
+<section class="s" id="aliados">
+  <div class="wrap center">
+    <h2>Tecnología respaldada por un ecosistema líder</h2>
+    <p class="lead">Marcas y fabricantes ficticios, para ilustrar la sección de aliados.</p>
+    <ul class="partners">
+      {aliados.map((n) => <li>{n}</li>)}
+    </ul>
+  </div>
+</section>

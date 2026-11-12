@@ -1,0 +1,18 @@
+---
+// "¿Por qué elegirnos?": tarjeta de título fija a la izquierda y tarjetas numeradas escalonadas
+import { porque } from '../data/corp.js';
+---
+<section class="s why" id="por-que">
+  <div class="wrap why-grid">
+    <div class="why-title"><span class="kicker">Diferenciales</span><h2>¿Por qué elegirnos?</h2></div>
+    <div class="why-cards">
+      {porque.map(([t, d], i) => (
+        <article class="why-card">
+          <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{t}</h3>
+          <p>{d}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

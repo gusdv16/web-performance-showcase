@@ -50,12 +50,14 @@ const nav = [
   <main id="contenido"><slot /></main>
   <footer class="end">
     <div class="wrap">
-      <div class="cols">
+      <div class="cols3">
         <div><h3>{empresa.nombre}</h3><p>Tecnología para que tu negocio no se detenga. Empresa ficticia creada para esta demostración.</p></div>
-        <div><h3>Infraestructura TI</h3><ul>{infra.map((x) => <li><a href={c + 'infraestructura/' + x.slug + '/'}>{x.titulo}</a></li>)}</ul></div>
-        <div><h3>Servicios</h3><ul>{servicios.map((x) => <li><a href={c + 'servicios/' + x.slug + '/'}>{x.titulo}</a></li>)}</ul></div>
-        <div><h3>Contacto</h3><p>{empresa.ciudad}<br>{empresa.correo}</p></div>
+        <div><h3>Contacto</h3><p>{empresa.ciudad}</p><p>{empresa.correo}</p></div>
+        <div><h3>¿Listo para empezar?</h3><p>Te respondemos sin compromiso en menos de un día hábil.</p><a class="listo" href={c + 'contacto/'}>Contactar ahora →</a></div>
       </div>
+      <nav class="links" aria-label="Secciones">
+        <a href={c + 'infraestructura/'}>Infraestructura TI</a><a href={c + 'servicios/'}>Servicios y soluciones</a><a href={c + 'experiencias/'}>Experiencias</a><a href={c + 'nosotros/'}>Nosotros</a>
+      </nav>
       <p class="fine">Demo de performance web hecha con Astro, sin JavaScript. Fotos de Unsplash, vía Picsum: <a href={base + 'creditos/'}>créditos</a>.</p>
     </div>
   </footer>

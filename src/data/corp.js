@@ -106,3 +106,18 @@ export const faqs = [
   ['¿Cuánto tarda un diagnóstico?', 'Entre una y dos semanas, según la cantidad de sedes y sistemas.'],
   ['¿Trabajan fuera de Montevideo?', 'Sí, con soporte remoto y visitas coordinadas en el interior.'],
 ];
+
+export const porque = [
+  ['Todo en un solo lugar', 'Equipos, software, soporte, consultoría y outsourcing con un único responsable. Un socio tecnológico en cada etapa.'],
+  ['Presencia regional, equipo local', 'Un equipo cercano que conoce tu operación, con respaldo de especialistas en otras sedes (datos ficticios).'],
+  ['Procesos certificados', 'Gestión de calidad y seguridad de la información documentada y auditada (ejemplo ilustrativo).'],
+  ['Décadas de continuidad', 'Una empresa estable, con clientes que nos acompañan hace años (ficticio).'],
+];
+
+export const aliados = ['Servidores Alfa', 'RedCore', 'NubeSur', 'Segura360', 'DatosPlus', 'Soporte Norte', 'CloudAndes', 'Licencias Pro'];
+
+export const testimonios = [
+  { marca: 'Distribuidora del Plata', quien: 'Marta Ibarra', cargo: 'Gerente de operaciones', texto: 'Pasamos de apagar incendios a tener la tecnología bajo control. Los cortes bajaron y el equipo ahora se dedica al negocio.' },
+  { marca: 'Clínica Santa Lucía', quien: 'Rodrigo Esteves', cargo: 'Director administrativo', texto: 'La migración a la nube se hizo por etapas y sin detener la atención. Siempre supimos qué venía en cada paso.' },
+  { marca: 'Cooperativa Río Negro', quien: 'Lucía Camacho', cargo: 'Responsable de sistemas', texto: 'El soporte responde rápido y explica sin tecnicismos. Es como tener un área de TI propia, con costo predecible.' },
+];

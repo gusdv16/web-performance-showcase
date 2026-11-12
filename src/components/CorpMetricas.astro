@@ -1,0 +1,13 @@
+---
+// Franja de cifras bajo el hero: pares que rotan solos (solo CSS)
+import { numeros } from '../data/corp.js';
+---
+<section class="strip" aria-label="Cifras de la empresa">
+  <div class="wrap metrics">
+    {[0, 2, 4].map((i) => (
+      <div class="mpair">
+        {numeros.slice(i, i + 2).map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
+      </div>
+    ))}
+  </div>
+</section>

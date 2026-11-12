@@ -1,6 +1,11 @@
 ---
 import Corp from '../../layouts/Corp.astro';
 import Foto from '../../components/Foto.astro';
+import Metricas from '../../components/CorpMetricas.astro';
+import PorQue from '../../components/CorpPorQue.astro';
+import Aliados from '../../components/CorpAliados.astro';
+import Testimonios from '../../components/CorpTestimonios.astro';
+import Proyecto from '../../components/CorpProyecto.astro';
 import { infra, servicios, casos, numeros, clientes, faqs } from '../../data/corp.js';
 const c = import.meta.env.BASE_URL + 'corp/';
 ---
@@ -23,6 +28,7 @@ const c = import.meta.env.BASE_URL + 'corp/';
       </svg>
     </div>
   </div>
+  <Metricas />
 
   <section class="s" id="servicios">
     <div class="wrap">
@@ -39,17 +45,7 @@ const c = import.meta.env.BASE_URL + 'corp/';
     </div>
   </section>
 
-  <section class="s alt">
-    <div class="wrap">
-      <div class="metrics" role="group" aria-label="Cifras de la empresa">
-        {[0, 2, 4].map((i) => (
-          <div class="mpair">
-            {numeros.slice(i, i + 2).map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <PorQue />
 
   <section class="s">
     <div class="wrap">
@@ -66,7 +62,10 @@ const c = import.meta.env.BASE_URL + 'corp/';
     </div>
   </section>
 
-  <section class="s alt">
+  <Aliados />
+  <Testimonios />
+
+  <section class="s">
     <div class="wrap">
       <h2>Experiencias</h2>
       <p class="lead">Casos de empresas que confiaron en nosotros (ficticios).</p>
@@ -107,11 +106,5 @@ const c = import.meta.env.BASE_URL + 'corp/';
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap">
-      <h2>¿Hablamos de tu proyecto?</h2>
-      <p>Contanos qué necesitás y te respondemos en menos de un día hábil.</p>
-      <a class="cta solid" href={c + 'contacto/'}>Hablemos</a>
-    </div>
-  </section>
+  <Proyecto />
 </Corp>
