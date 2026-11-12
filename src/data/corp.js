@@ -95,6 +95,8 @@ export const numeros = [
   ['120', 'clientes activos (ficticio)'],
   ['24/7', 'monitoreo de infraestructura'],
   ['98 %', 'tickets resueltos en plazo (ficticio)'],
+  ['3', 'sedes en el país (ficticio)'],
+  ['40', 'profesionales en el equipo (ficticio)'],
 ];
 
 export const clientes = ['Distribuidora del Plata', 'Clínica Santa Lucía', 'Estudio Ferrer', 'Cooperativa Río Negro', 'Hotel Costa Azul', 'Aceros del Este'];

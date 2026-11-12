@@ -21,6 +21,7 @@ nav.main a:hover,nav.main a[aria-current=page]{background:rgba(255,255,255,.16)}
 .dd .menu a{color:var(--fg);display:flex;width:100%;font-weight:500}
 .dd .menu a:hover{background:var(--soft)}
 .dd:hover .menu,.dd:focus-within .menu{display:block}
+nav.main>ul>li:last-child .menu{left:auto;right:0}
 .cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.5rem 1.25rem;border-radius:3rem;font-weight:700;text-decoration:none;border:2px solid #fff;color:#fff;background:transparent}
 .cta:hover{background:#fff;color:var(--blue-d)}
 .cta.solid{background:#fff;color:var(--blue-d)}
@@ -97,3 +98,93 @@ footer.end .fine{margin-top:2rem;border-top:1px solid #1b3357;padding-top:1rem;f
 .float:hover{background:#085a2e}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===== Cifras rotativas (siempre visibles apiladas si hay poco movimiento) ===== */
+.metrics{display:grid}
+.mpair{grid-area:1/1;display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center}
+.mpair b{display:block;font-size:clamp(2.2rem,7vw,3.4rem);line-height:1.1;color:var(--blue)}
+.mpair span{color:var(--muted);font-size:.98rem}
+
+/* ===== Cintas de clientes ===== */
+.marquee{overflow:hidden;margin:.6rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee .track{display:flex;gap:.7rem;width:max-content}
+.marquee span{background:#fff;border:1px solid var(--line);border-radius:3rem;padding:.55rem 1.4rem;font-weight:700;color:var(--muted);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){
+  .marquee{-webkit-mask-image:none;mask-image:none}
+  .marquee .track{flex-wrap:wrap;width:auto}
+  .marquee span[aria-hidden=true],.marquee.rev{display:none}
+  .metrics{gap:1.5rem}
+  .mpair{grid-area:auto}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  /* Transición suave entre páginas (navegación multipágina, sin JS) */
+  @view-transition{navigation:auto}
+
+  /* Entrada del hero: título con desenfoque, subtítulo y botones con fadeInUp */
+  .hero h1{animation:heroTitleIn 1.2s cubic-bezier(.2,.7,.2,1) both}
+  .hero p,.hero .btns{animation:fadeInUp .7s ease-out both}
+  .hero p{animation-delay:.25s}
+  .hero .btns{animation-delay:.45s}
+  .pagehead h1{animation:fadeInUp .6s ease-out both}
+  @keyframes heroTitleIn{from{translate:0 22px;filter:blur(8px)}to{translate:0 0;filter:blur(0)}}
+  @keyframes fadeInUp{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+
+  /* Formas del hero flotando despacio */
+  .hero svg rect,.hero svg circle{transform-box:fill-box;transform-origin:center;animation:flota 9s ease-in-out infinite alternate}
+  .hero svg circle:nth-of-type(2){animation-duration:11s;animation-delay:-3s}
+  .hero svg rect:nth-of-type(2){animation-duration:13s;animation-delay:-5s}
+  @keyframes flota{from{translate:0 0}to{translate:0 -14px}}
+
+  /* Cifras: pares que rotan cada 4 s */
+  .mpair{opacity:0;animation:mrot 12s infinite both}
+  .mpair:nth-child(2){animation-delay:4s}
+  .mpair:nth-child(3){animation-delay:8s}
+  @keyframes mrot{0%{opacity:0;transform:translateY(14px)}4%,30%{opacity:1;transform:none}34%,100%{opacity:0;transform:translateY(-10px)}}
+
+  /* Cintas de clientes en movimiento infinito, en sentidos opuestos */
+  .marquee .track{animation:cinta 26s linear infinite}
+  .marquee.rev .track{animation-duration:32s;animation-direction:reverse}
+  .marquee:hover .track{animation-play-state:paused}
+  @keyframes cinta{to{transform:translate3d(-50%,0,0)}}
+
+  /* Tarjetas y botones: transiciones al pasar el mouse o enfocar */
+  .card{transition:transform .3s,box-shadow .3s}
+  .card:hover,.card:focus-within{transform:translateY(-6px);box-shadow:0 14px 34px rgba(7,26,53,.16)}
+  .card img{transition:transform .6s}
+  .card:hover img{transform:scale(1.06)}
+  .card{overflow:hidden}
+  .card a.more::after{display:inline-block;transition:transform .25s}
+  .card a.more:hover::after{transform:translateX(5px)}
+  .cta,.btn{transition:background-color .3s,color .3s,transform .2s}
+  .cta:hover,.btn:hover{transform:translateY(-2px)}
+  nav.main a{transition:background-color .25s}
+  .dd .menu{display:block;visibility:hidden;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+  .dd:hover .menu,.dd:focus-within .menu{visibility:visible;opacity:1;transform:none}
+  .pills span,.marquee span{transition:color .3s,border-color .3s}
+  .marquee span:hover{color:var(--blue);border-color:var(--blue)}
+
+  /* Botón flotante: entra con rebote y emite un pulso suave */
+  .float{animation:rebota .8s 1.2s cubic-bezier(.34,1.56,.64,1) both;transition:transform .25s,background-color .25s}
+  .float:hover{transform:translateY(-3px)}
+  .float::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--wa);animation:pulso 2.6s ease-out 2.5s infinite;pointer-events:none}
+  @keyframes rebota{from{opacity:0;translate:0 40px;scale:.8}to{opacity:1;translate:0 0;scale:1}}
+  @keyframes pulso{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.35,1.6)}}
+}
+
+/* ===== Animaciones ligadas al scroll (sin JavaScript, donde el navegador lo soporta) ===== */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    section.s h2,section.s .lead,.card,.res div,.two>*,ul.check li,details,.band>.wrap>*{
+      animation-name:aparece;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:view();animation-range:entry 0% entry 55%}
+    .grid>.card:nth-child(2){animation-range:entry 8% entry 63%}
+    .grid>.card:nth-child(3){animation-range:entry 16% entry 71%}
+    .grid>.card:nth-child(4){animation-range:entry 24% entry 79%}
+    .two>*:last-child{animation-name:apareceDer}
+    @keyframes aparece{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
+    @keyframes apareceDer{from{opacity:0;translate:40px 0}to{opacity:1;translate:0 0}}
+    /* El encabezado gana sombra al bajar */
+    header.top{animation-name:sombra;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:scroll(root);animation-range:0 90px}
+    @keyframes sombra{from{box-shadow:0 0 0 rgba(7,26,53,0)}to{box-shadow:0 6px 22px rgba(7,26,53,.28)}}
+  }
+}

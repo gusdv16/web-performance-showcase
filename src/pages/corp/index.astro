@@ -41,8 +41,12 @@ const c = import.meta.env.BASE_URL + 'corp/';
 
   <section class="s alt">
     <div class="wrap">
-      <div class="nums">
-        {numeros.map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
+      <div class="metrics" role="group" aria-label="Cifras de la empresa">
+        {[0, 2, 4].map((i) => (
+          <div class="mpair">
+            {numeros.slice(i, i + 2).map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -81,7 +85,18 @@ const c = import.meta.env.BASE_URL + 'corp/';
     <div class="wrap">
       <h2>Empresas que trabajan con nosotros</h2>
       <p class="lead">Nombres ficticios, para ilustrar la sección de clientes.</p>
-      <div class="pills">{clientes.map((n) => <span>{n}</span>)}</div>
+      <div class="marquee" role="group" aria-label="Clientes (ficticios)">
+        <div class="track">
+          {clientes.map((n) => <span>{n}</span>)}
+          {clientes.map((n) => <span aria-hidden="true">{n}</span>)}
+        </div>
+      </div>
+      <div class="marquee rev" aria-hidden="true">
+        <div class="track">
+          {[...clientes].reverse().map((n) => <span>{n}</span>)}
+          {[...clientes].reverse().map((n) => <span>{n}</span>)}
+        </div>
+      </div>
     </div>
   </section>
 

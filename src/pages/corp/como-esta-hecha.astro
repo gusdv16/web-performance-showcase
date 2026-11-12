@@ -22,6 +22,30 @@ const base = import.meta.env.BASE_URL;
     <li>Menú con desplegables, botón "Hablemos", botón flotante de contacto, preguntas frecuentes y formulario.</li>
   </ul>
 
+  <h2>Animaciones, sin JavaScript</h2>
+  <p>El sitio de referencia usa varias animaciones (entrada del título, aparición al hacer scroll, cifras que rotan, cintas de clientes, botón flotante). Acá están todas, resueltas solo con CSS:</p>
+  <table>
+    <thead><tr><th>Efecto</th><th>Cómo se logra</th></tr></thead>
+    <tbody>
+      <tr><td>Título del hero que entra con desenfoque; subtítulo y botones que suben</td><td><code>@keyframes</code> con <code>filter</code> y <code>translate</code>, con retrasos escalonados</td></tr>
+      <tr><td>Secciones y tarjetas que aparecen al bajar</td><td>Animaciones ligadas al scroll: <code>animation-timeline: view()</code> y <code>animation-range</code>, con rangos desplazados para el escalonado</td></tr>
+      <tr><td>Sombra del encabezado al hacer scroll</td><td><code>animation-timeline: scroll()</code></td></tr>
+      <tr><td>Cifras que rotan de a pares</td><td>Tres pares apilados con una animación de opacidad de 12 s y retrasos de 4 s</td></tr>
+      <tr><td>Cintas de clientes infinitas en sentidos opuestos</td><td><code>translate3d(-50%)</code> sobre una lista duplicada, con pausa al pasar el mouse</td></tr>
+      <tr><td>Tarjetas que se elevan y fotos con zoom</td><td>Transiciones de <code>transform</code> al pasar el mouse o enfocar con teclado</td></tr>
+      <tr><td>Menús desplegables con fundido</td><td>Transición de <code>opacity</code>, <code>transform</code> y <code>visibility</code></td></tr>
+      <tr><td>Botón flotante con rebote y pulso</td><td>Dos <code>@keyframes</code>; el pulso es un pseudo-elemento que escala</td></tr>
+      <tr><td>Fundido entre páginas</td><td><code>@view-transition &#123; navigation: auto &#125;</code></td></tr>
+    </tbody>
+  </table>
+  <h3>Cómo se mantienen rápidas</h3>
+  <ul>
+    <li>Solo se animan <code>opacity</code>, <code>transform</code>/<code>translate</code> y <code>filter</code>, que el navegador resuelve en la GPU sin recalcular el diseño: no generan CLS ni bloquean el hilo principal.</li>
+    <li>Las animaciones de scroll se ejecutan fuera del hilo principal, sin <code>IntersectionObserver</code> ni librerías. En navegadores que no las soportan, el contenido simplemente se ve sin animar (nunca queda oculto).</li>
+    <li>Todo está dentro de <code>@media (prefers-reduced-motion: no-preference)</code>: quien pide menos movimiento ve las cifras y los clientes estáticos.</li>
+    <li>La entrada del título no usa opacidad, para no retrasar el LCP.</li>
+  </ul>
+
   <h2>Técnicas aplicadas</h2>
   <ul>
     <li><strong>Menús desplegables sin JavaScript:</strong> se abren con <code>:hover</code> y <code>:focus-within</code>, así que funcionan con mouse y teclado. En pantallas táctiles los enlaces principales llevan a páginas que listan sus secciones.</li>
