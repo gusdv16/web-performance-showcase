@@ -389,7 +389,7 @@ header.top{background:var(--hbg);color:var(--hfg)}
 nav.main a{color:var(--hfg)}
 nav.main a:hover,nav.main a[aria-current=page]{background:var(--hhov)}
 header.top a.search{color:var(--hfg);border-color:var(--hfg)}
-header.top a.search:hover,header.top .cta:hover{background:var(--hfg);color:var(--hbg)}
+header.top a.search:hover,header.top .cta:hover{background:var(--hhov);color:var(--hfg)}
 header.top .cta{color:var(--hfg);border-color:var(--hfg)}
 @supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){
   header.top{animation-name:cabecera;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:scroll(root);animation-range:0 36px}
