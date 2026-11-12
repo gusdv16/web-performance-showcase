@@ -459,6 +459,177 @@
         97,
         96
       ]
+    },
+    "corp-inicio": {
+      "performance": 98,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1259,
+      "lcp": 1259,
+      "tbt": 161,
+      "cls": 0,
+      "speedIndex": 1259,
+      "bytes": 167707,
+      "requests": 9,
+      "version": "13.6.0",
+      "corridas": [
+        98,
+        99,
+        98
+      ]
+    },
+    "corp-nosotros": {
+      "performance": 100,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1017,
+      "lcp": 1017,
+      "tbt": 79,
+      "cls": 0,
+      "speedIndex": 1017,
+      "bytes": 56515,
+      "requests": 4,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        100,
+        100
+      ]
+    },
+    "corp-infra": {
+      "performance": 100,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1118,
+      "lcp": 1248,
+      "tbt": 76,
+      "cls": 0,
+      "speedIndex": 1118,
+      "bytes": 106551,
+      "requests": 6,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "corp-detalle": {
+      "performance": 100,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1110,
+      "lcp": 1110,
+      "tbt": 60,
+      "cls": 0,
+      "speedIndex": 1171,
+      "bytes": 29100,
+      "requests": 3,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        99
+      ]
+    },
+    "corp-experiencias": {
+      "performance": 100,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1089,
+      "lcp": 1089,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 1089,
+      "bytes": 74518,
+      "requests": 5,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "corp-caso": {
+      "performance": 99,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 934,
+      "lcp": 934,
+      "tbt": 110,
+      "cls": 0,
+      "speedIndex": 934,
+      "bytes": 42677,
+      "requests": 3,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        99,
+        99
+      ]
+    },
+    "corp-contacto": {
+      "performance": 100,
+      "accessibility": 94,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 992,
+      "lcp": 992,
+      "tbt": 8,
+      "cls": 0,
+      "speedIndex": 992,
+      "bytes": 14059,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        100,
+        100,
+        100
+      ]
+    },
+    "corp-como": {
+      "performance": 95,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 775,
+      "lcp": 775,
+      "tbt": 270,
+      "cls": 0,
+      "speedIndex": 775,
+      "bytes": 7234,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        93,
+        99,
+        95
+      ]
+    },
+    "demos": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1034,
+      "lcp": 1034,
+      "tbt": 93,
+      "cls": 0,
+      "speedIndex": 1123,
+      "bytes": 5872,
+      "requests": 2,
+      "version": "13.6.0",
+      "corridas": [
+        99,
+        98,
+        100
+      ]
     }
   }
 }
